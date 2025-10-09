@@ -1,0 +1,187 @@
+/* ========================================================================
+   SwayNC CSS - Styled to Match Waybar Theme
+======================================================================== */
+
+/* ---- Colors ---- */
+@define-color background rgba(0,0,0,0.5);
+@define-color foreground #ffffff;
+@define-color color1 rgba(0,0,0,0.5);
+@define-color color2 rgba(255,255,255,0.15);
+@define-color color8 #6c7086;
+
+/* ---- Global ---- */
+* {
+    outline: none;
+    font-family: "Iosevka Nerd Font", "SpaceMono Nerd Font", monospace;
+    font-size: 14px;
+    text-shadow: none;
+    color: @foreground;
+}
+
+/* ---- Control Center ---- */
+.control-center {
+    background: @background;
+    border: 2px solid @color2;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* ---- Notifications ---- */
+.notification {
+    background: @background;
+    border: 2px solid @color2;
+    border-radius: 7px;
+    margin: 8px 2px;
+    transition: background 0.3s ease;
+}
+
+.notification:hover {
+    background: @color1;
+}
+
+.notification.critical {
+    border-color: #ff6b6b;
+}
+
+.notification.low,
+.notification.normal {
+    border-color: @color2;
+}
+
+/* Notification Content */
+.notification-content {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* ---- Text ---- */
+.summary {
+    font-weight: bold;
+}
+
+.time {
+    font-size: 0.8rem;
+    color: @color8;
+}
+
+.body {
+    font-size: 1rem;
+}
+
+/* ---- Buttons ---- */
+.notification-action > button,
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: transparent;
+    border: 2px solid @color2;
+    border-radius: 7px;
+    padding: 5px 10px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.notification-action > button:hover,
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: @color1;
+    color: @foreground;
+}
+
+/* ---- Close Button ---- */
+.close-button {
+    background: transparent;
+    border-radius: 5px;
+}
+
+.close-button:hover {
+    color: #ff6b6b;
+}
+
+/* ---- Groups ---- */
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+    background: transparent;
+    border: 2px solid @color2;
+    border-radius: 7px;
+    padding: 3px 8px;
+    transition: background 0.3s ease;
+}
+
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+    background: @color1;
+}
+
+/* ---- Scrollbars ---- */
+scale trough {
+    background: @color1;
+    border-radius: 7px;
+    min-height: 8px;
+}
+
+slider {
+    background: @foreground;
+    border-radius: 7px;
+}
+
+/* ---- Widgets ---- */
+.widget-title {
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 2px solid @color2;
+}
+
+.widget-title > button {
+    background: transparent;
+    border: 2px solid @color2;
+    border-radius: 7px;
+    padding: 2px 6px;
+    transition: background 0.3s ease;
+}
+
+.widget-title > button:hover {
+    background: @color1;
+}
+
+/* ---- MPRIS ---- */
+.widget-mpris .widget-mpris-player {
+    padding: 10px;
+    margin: 10px 0;
+    background: @background;
+    border: 2px solid @color2;
+    border-radius: 7px;
+    transition: background 0.3s ease;
+}
+
+.widget-mpris .widget-mpris-player:hover {
+    background: @color1;
+}
+
+.widget-mpris .widget-mpris-title {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* ---- Volume / Backlight ---- */
+.widget-volume,
+.widget-backlight {
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid @color2;
+    border-radius: 7px;
+}
+
+/* ---- DND ---- */
+.widget-dnd {
+    font-weight: bold;
+    padding: 10px;
+    border-top: 2px solid @color2;
+}
+
+.widget-dnd > switch {
+    border-radius: 7px;
+    background: @color1;
+}
+
+.widget-dnd > switch:checked {
+    background: @foreground;
+}
+

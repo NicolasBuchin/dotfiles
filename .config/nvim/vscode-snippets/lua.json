@@ -1,0 +1,30 @@
+{
+  "love.load": {
+    "prefix": "lload",
+    "body": [
+      "function love.load()",
+      "  $0",
+      "end"
+    ],
+    "description": "love.load callback"
+  },
+  "love.draw": {
+    "prefix": "ldraw",
+    "body": [
+      "function love.draw()",
+      "  $0",
+      "end"
+    ],
+    "description": "love.draw callback"
+  },
+  "love.update": {
+    "prefix": "lupdate",
+    "body": [
+      "function love.update(dt)",
+      "  $0",
+      "end"
+    ],
+    "description": "love.update callback"
+  }
+}
+

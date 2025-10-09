@@ -1,0 +1,238 @@
+/* ---- Color Constants ---- */
+@define-color background rgba(24, 24, 24, 0.5);
+@define-color transparent rgba(0, 0, 0, 0);
+@define-color foreground #d8d8d8;
+@define-color black #000000;
+@define-color white #ffffff;
+
+@define-color dim rgba(74, 74, 74, 0.5);
+
+@define-color amber rgba(214, 170, 84, 0.8);
+@define-color amber-light rgba(230, 205, 150, 0.5);
+@define-color amber-border rgba(214, 170, 84, 0.6);
+@define-color amber-shadow rgba(214, 170, 84, 0.3);
+
+@define-color pastel-cpu rgba(255, 223, 186, 0.8);
+@define-color pastel-gpu rgba(255, 215, 180, 0.5);
+@define-color pastel-temp rgba(255, 190, 140, 0.9);
+
+@define-color coral rgba(255, 150, 100, 0.8);
+@define-color cream rgba(255, 223, 186, 0.9);
+@define-color peach rgba(255, 190, 140, 0.8);
+
+
+/* ---- Base Window/Dialog ---- */
+window, dialog {
+    background-color: @background;
+}
+
+* {
+    background-color: @transparent;
+    color: @foreground;
+}
+
+/* ---- Interactive Elements ---- */
+button:hover,
+menuitem:hover,
+.menuitem:hover,
+button:active,
+menuitem:active,
+.menuitem:active,
+button:focus,
+menuitem:focus,
+.menuitem:focus,
+button:selected,
+menuitem:selected,
+.menuitem:selected {
+    color: @black;
+    background-color: @amber-light;
+}
+
+/* ---- Sidebar, Context Menu, Buttons, Entry ---- */
+.sidebar .selected,
+.context-menu .selected,
+.confirm-button,
+.button,
+.entry {
+    background-color: @transparent;
+    color: @foreground;
+}
+
+.button:hover, .confirm-button:hover {
+    background-color: @amber-light;
+}
+
+.button:active, .confirm-button:active {
+    background-color: @pastel-gpu;
+}
+
+/* ---- Location Bar, Search, Menus, Toolbar, Sidebar ---- */
+.location-bar, .search-button, menu, .menu, .context-menu, .toolbar, .sidebar {
+    background-color: @transparent;
+}
+
+/* ---- Scrollbar ---- */
+scrollbar, scrollbar * {
+    background-color: @transparent;
+}
+
+scrollbar trough {
+    background-color: @transparent;
+}
+
+scrollbar slider {
+    background-color: @amber;
+    border-radius: 4px;
+}
+
+scrollbar slider:hover {
+    background-color: @amber-light;
+}
+
+scrollbar slider:active {
+    background-color: @pastel-temp;
+}
+
+/* ---- Entry/Input Focus ---- */
+.entry:focus,
+entry:focus {
+    border-color: @amber-border;
+    box-shadow: 0 0 0 1px @amber-shadow;
+}
+
+/* ---- Progress Bar ---- */
+progressbar progress {
+    background-color: @amber;
+}
+
+progressbar trough {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* ---- Selection ---- */
+selection {
+    background-color: @amber-light;
+    color: @white;
+}
+
+/* ---- Menu Underlines ---- */
+menubar > menuitem:hover {
+    border-bottom: 2px solid @amber;
+}
+
+menubar > menuitem:selected {
+    border-bottom: 2px solid @amber;
+}
+
+/* ---- Underlines/Borders ---- */
+*:focus {
+    outline-color: @amber-border;
+    outline-width: 2px;
+    outline-style: solid;
+}
+
+/* ---- All Progress Bars & Level Bars ---- */
+progressbar progress,
+levelbar block.filled {
+    background-color: @pastel-cpu;
+    background-image: linear-gradient(
+        to right,
+        @pastel-cpu,
+        @amber
+    );
+}
+
+progressbar trough,
+levelbar trough {
+    background-color: @dim;
+}
+
+/* ---- Disk Usage / Storage Indicators ---- */
+levelbar block.low {
+    background-color: @amber;
+}
+
+levelbar block.high {
+    background-color: @peach;
+}
+
+levelbar block.full {
+    background-color: @coral;
+}
+
+/* ---- Scale/Slider ---- */
+scale trough {
+    background-color: @dim;
+}
+
+scale highlight {
+    background-color: @amber;
+}
+
+scale slider {
+    background-color: @amber-light;
+    border: 1px solid @amber-border;
+}
+
+scale slider:hover {
+    background-color: @cream;
+}
+
+/* ---- Spinbutton ---- */
+spinbutton button {
+    background-color: @transparent;
+    color: @amber;
+}
+
+spinbutton button:hover {
+    background-color: @amber-light;
+}
+
+/* ---- Checkboxes & Radio Buttons ---- */
+check,
+radio {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid @amber-light;
+}
+
+check:checked,
+radio:checked {
+    background-color: @amber;
+    border-color: @amber;
+    color: @black;
+}
+
+check:hover,
+radio:hover {
+    border-color: @amber-light;
+}
+
+/* ---- Switch ---- */
+switch {
+    background-color: @dim;
+    border: 1px solid rgba(170, 160, 120, 0.3);
+}
+
+switch:checked {
+    background-color: @amber;
+}
+
+switch slider {
+    background-color: @amber-light;
+}
+
+/* ---- Tabs ---- */
+notebook tab {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: @foreground;
+}
+
+notebook tab:checked {
+    background-color: @amber-light;
+    color: @white;
+}
+
+notebook tab:hover {
+    background-color: @amber;
+}
+

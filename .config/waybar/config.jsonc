@@ -1,0 +1,292 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 5,
+    "reload_style_on_change": true,
+    
+    "modules-left": [
+        "group/Utilities",
+        "group/workspaces",
+        "group/music",
+        "tray"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        // "tray",
+        "group/hardware",
+        "group/system"
+    ],
+
+    "group/Utilities": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/arch"
+        ]
+    },
+    "group/workspaces": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/openbracket",
+            "hyprland/workspaces",
+            "custom/closebracket"
+        ]
+    },
+    "group/music": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/openbracket",
+            "image#cover",
+            "mpris",
+            "custom/closebracket"
+        ]
+    },
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/openbracket",
+            "cpu",
+            "custom/split",
+            "custom/gpu-usage",
+            "custom/split",
+            "memory",
+            "custom/split",
+            "temperature",
+            "custom/closebracket"
+        ]
+    },
+    "group/system": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/openbracket",
+            "clock",
+            "custom/split",
+            "pulseaudio",
+            "bluetooth",
+            "network",
+            "battery",
+            "custom/split",
+            "custom/swaync",
+            "custom/closebracket"
+        ]
+    },
+
+    "custom/openbracket": {
+        "format": "[",
+        "tooltip": false,
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+    "custom/closebracket": {
+        "format": "]",
+        "tooltip": false,
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },    
+    "custom/split": {
+        "format": "|",
+        "tooltip": false,
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "custom/arch": {
+        "format": " ",
+        "tooltip": true,
+        "tooltip-format": "btw",
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+    
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": 3
+        },
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": ""
+        },
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "image#cover": {
+        "exec": "/home/nico/.config/waybar/cover.sh",
+        "interval": 2,
+        // "size": 24,
+        "tooltip": false,
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "mpris": {
+        // "format": " {player_icon} {status_icon} | {dynamic} ",
+        "format": " {status_icon} | {dynamic} {player_icon} ",
+        "interval": 1,
+        "dynamic-len": 50,
+        "dynamic-order": ["title", "artist"],
+        "dynamic-importance-order": ["artist", "title"],
+        "tooltip": true,
+        "tooltip-format": "{player} is playing “{title}” by {artist} from the album “{album}”",
+        "status-icons": {
+            "playing": "",
+            "paused": "",
+            "stopped": ""
+        },
+        "player-icons": {
+          "spotify": " ",
+          "vlc": "󰕼 ",
+          "firefox": " ",
+          "chromium": " ",
+          "mpv": " ",
+          "default": ""
+        },
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "hyprland/window": {
+        "format": "{}"
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "tooltip-format": "{desc}\nVolume: {volume}%",
+        "format-muted": "󰝟 ",
+        "format-icons": {
+            "headphone": " ", 
+            "hands-free": " ", 
+            "headset": " ",
+            "phone": "",
+            "portable": "",
+            "car": " ",
+            "default": [" ", " ", " "]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +0.5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -0.5%",
+        "scroll-step": 5
+    },
+
+    "network": {
+        "interface": "wlan0",
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀 LAN",
+        "tooltip-format": "{essid} - {ifname} {gwaddr} {signalStrength}%",
+        "format-disconnected": "󰖪 ",
+        "on-click": "alacritty -e nmtui",
+        "format-icons": [ "󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 " ],
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "bluetooth": {
+        "format": "󰂯",           
+        "format-disabled": "󰂲",
+        "interval": 10,
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%",
+        "on-click": "rfkill toggle bluetooth",
+        "on-click-right": "blueman-manager",
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "cpu": {
+        "format": "CPU:{usage}%",
+        "exec": "top -bn1 | grep 'Cpu' | awk '{print $2}'",
+        "interval": 2,
+        "tooltip": false,
+        "on-click": "alacritty -e htop",
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "custom/gpu-usage": {
+        "format": "GPU:{}%",
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+        "interval": 2,
+        "tooltip": false,
+        "on-click": "alacritty -e nvtop",
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "memory": {
+        "format": "RAM:{}%",
+        "tooltip": true,
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", ""],
+        "on-scroll-up": "brightnessctl set 10%+",
+        "on-scroll-down": "brightnessctl set 10%-",
+        "min-length": 6
+    },
+
+    "temperature": {
+        "format": "{temperatureC}°C",
+        "interval": 10,
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input",
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} ",
+        "format-charging": " ",
+        "format-full": " ",
+        "tooltip-format": "{capacity}%, {time} left",
+        "format-icons": [" ", " ", " ", " ", " "],
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    },
+
+    "clock": {
+        "format": "{:%H:%M}  ",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}  "
+    },
+
+    "custom/swaync": {
+        "format": " ",
+        "tooltip": false,
+        "exec": "swaync-client --count",
+        "on-click": "swaync-client -t",
+        "interval": 1,
+        "on-scroll-up": "",
+        "on-scroll-down": ""
+    }
+}
+

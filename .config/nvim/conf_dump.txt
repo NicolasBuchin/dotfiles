@@ -1,0 +1,448 @@
+
+init.lua:
+require("options")   -- Basic settings
+require("plugins")   -- Plugins
+require("keymaps")   -- Keybindings
+require("lsp")       -- LSP
+require('Comment')   -- Commenting
+
+
+
+lua/lsp.lua:
+local lsp = require("lspconfig")
+
+-- Python
+lsp.pyright.setup({
+	settings = {
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				extraPaths = { "/home/nico/git/strobealign/src/python" },
+			},
+		},
+	},
+})
+
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+})
+
+lsp.clangd.setup({
+	cmd = { "clangd", "--compile-commands-dir=build" },
+	filetypes = { "c", "cpp", "objc", "objcpp" },
+	root_dir = lsp.util.root_pattern("compile_commands.json", ".git"),
+})
+
+local function make_lua_library_with_love()
+  local runtime_files = vim.api.nvim_get_runtime_file("", true) or {}
+
+  local love_api_path = vim.fn.stdpath("data") .. "/love-api"
+
+  local library = {}
+  for _, p in ipairs(runtime_files) do
+    library[p] = true
+  end
+  if vim.fn.isdirectory(love_api_path) == 1 then
+    library[love_api_path] = true
+  else
+    library[love_api_path] = true
+  end
+
+  return library
+end
+
+lsp.lua_ls.setup({
+  settings = {
+    Lua = {
+      runtime = { version = "LuaJIT" },
+      diagnostics = {
+        globals = { "vim", "love" }, 
+      },
+      workspace = {
+        library = make_lua_library_with_love(),
+        checkThirdParty = false,
+      },
+      telemetry = { enable = false },
+    },
+  },
+})
+
+-- Rust LSP Setup via rust-tools
+require("rust-tools").setup({
+	server = {
+		on_attach = function(_, bufnr)
+			local cmp = require("cmp")
+			cmp.setup.buffer({
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
+				}),
+			})
+
+			local rt = require("rust-tools")
+			vim.keymap.set("n", "<S-t>", rt.hover_actions.hover_actions, { buffer = bufnr })
+		end,
+		settings = {
+			["rust-analyzer"] = {
+				cargo = { allFeatures = true },
+				diagnostics = { enable = true },
+				checkOnSave = { command = "clippy" },
+				inlayHints = {
+					typeHints = { enable = false },
+					parameterHints = { enable = false },
+					chainingHints = { enable = false },
+				},
+			},
+		},
+	},
+})
+
+-- ALE Setup (Linting/Formatting)
+vim.g.ale_fixers = {
+	python = { "autopep8" },
+	rust = { "rustfmt" },
+	-- c = { "clang-format" },
+	-- cpp = { "clang-format" },
+	lua = { "stylua" },
+}
+
+vim.g.ale_linters = {
+	python = { "flake8" },
+	rust = { "cargo" },
+	c = { "clang" },
+	cpp = { "clang" },
+}
+vim.g.ale_fix_on_save = 1
+
+-- nvim-autopairs Setup
+require("nvim-autopairs").setup({
+	check_ts = true,
+})
+
+-- Autopairs Integration with nvim-cmp
+local cmp = require("cmp")
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
+	mapping = {
+		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<C-u>"] = cmp.mapping.scroll_docs(-4),
+		["<C-d>"] = cmp.mapping.scroll_docs(4),
+	},
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+		{ name = "buffer" },
+	}),
+})
+cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+
+-- LuaSnip Lazy Load VSCode-Style Snippets
+require("luasnip.loaders.from_vscode").lazy_load()
+
+
+lua/options.lua:
+-- UI Settings
+vim.opt.number = true -- Show line numbers
+vim.opt.relativenumber = true -- Show relative line numbers
+vim.opt.termguicolors = true -- Enable 24-bit RGB colors
+vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]]) -- Transparent background
+
+-- Tab/Indentation Settings (4 spaces)
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+
+-- Use system clipboard as the default register
+vim.opt.clipboard = "unnamedplus"
+
+
+lua/keymaps.lua:
+-- File Tree Toggle
+vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
+
+-- File Finder with Telescope
+vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>")
+
+-- Comment/Uncomment
+vim.keymap.set("n", "<C-k>", ":lua require('Comment.api').toggle.linewise.current()<CR>")
+vim.keymap.set("v", "<C-k>", ":lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { silent = true })
+
+-- Indentation (Normal Mode)
+vim.keymap.set("n", "<C-Tab>", ">>", { noremap = true, silent = true, desc = "Indent line" })
+vim.keymap.set("n", "<S-Tab>", "<<", { noremap = true, silent = true, desc = "Unindent line" })
+
+-- Indentation (Visual Mode)
+vim.keymap.set("v", "<C-Tab>", ">gv", { noremap = true, silent = true, desc = "Indent selection" })
+vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true, desc = "Unindent selection" })
+
+-- Disable middle mouse paste in normal, visual, and insert modes
+vim.keymap.set("n", "<MiddleMouse>", "<Nop>")
+vim.keymap.set("v", "<MiddleMouse>", "<Nop>")
+vim.keymap.set("i", "<MiddleMouse>", "<Nop>")
+
+-- When pasting over a visual selection, don't yank the replaced text into the unnamed register.
+-- Visual mode: p => delete selection into black hole register then put previous text
+vim.keymap.set("v", "p", '"_dP', { noremap = true, silent = true, desc = "Paste without overwriting clipboard" })
+-- Also handle P (optional, symmetric)
+vim.keymap.set("v", "P", '"_dP', { noremap = true, silent = true, desc = "Paste without overwriting clipboard (P)" })
+
+-- Optional: make `x` and `X` delete to black hole so they don't overwrite registers
+vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true })
+vim.keymap.set("n", "X", '"_X', { noremap = true, silent = true })
+
+
+lua/comment.lua:
+-- Setup for Comment.nvim plugin with custom keybindings
+require("Comment").setup({
+  padding = true, -- Adds a space between comment and line
+  sticky = true,  -- Cursor stays in place after commenting
+  mappings = {
+    basic = true,
+    extra = true,
+  },
+  toggler = {
+    line = '<C-k>',   -- Toggle comment on current line
+  },
+  opleader = {
+    line = '<C-k>',   -- Toggle comment in visual mode
+  },
+})
+
+
+
+lua/plugins.lua:
+-- Lazy.nvim Bootstrap
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Plugin Setup with Lazy.nvim
+require("lazy").setup({
+	-- UI / Theme
+	{ "AlexvZyl/nordic.nvim", lazy = false, priority = 1000 },
+
+	-- Syntax Highlighting
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+
+	-- File Explorer / Finder
+	{ "nvim-tree/nvim-tree.lua" },
+	{ "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+
+	-- LSP / Completion
+	{ "neovim/nvim-lspconfig", version = "v0.1.7" },
+
+	{ "hrsh7th/nvim-cmp" },
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "L3MON4D3/LuaSnip" },
+
+	-- Rust Tools
+	{ "simrat39/rust-tools.nvim" },
+
+	-- Debugging / Linting / Formatting
+	{ "mfussenegger/nvim-dap" },
+	{ "dense-analysis/ale" },
+
+	-- Markdown Preview Plugin
+	{
+		"iamcco/markdown-preview.nvim",
+		build = "cd app && npm install",
+		ft = "markdown",
+		config = function()
+			vim.g.mkdp_auto_start = 1 -- auto start preview when editing Markdown files
+			-- You can add more configuration options here if desired.
+		end,
+	},
+
+	-- Misc
+	{ "numToStr/Comment.nvim" },
+	{ "windwp/nvim-autopairs" },
+
+	{
+		"nvim-tree/nvim-web-devicons",
+		lazy = true,
+	},
+	{
+		"saecki/crates.nvim",
+		tag = "stable",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("crates").setup()
+		end,
+		ft = { "toml" },
+	},
+
+	{ "lewis6991/gitsigns.nvim" },
+})
+
+-- auto start on opening Cargo.toml
+vim.api.nvim_create_autocmd("BufRead", {
+	pattern = "Cargo.toml",
+	callback = function()
+		require("crates").show()
+	end,
+})
+
+-- Theme Setup
+require("nordic").setup({
+	transparent_bg = true,
+	cursorline = { theme = "light" },
+	telescope = { style = "classic" },
+	on_palette = function(palette)
+		palette.gray4 = "#8D9096"
+		palette.green.base = palette.cyan.base
+	end,
+	on_highlight = function(highlights, _palette)
+		for _, highlight in pairs(highlights) do
+			highlight.bold = false
+		end
+	end,
+})
+vim.cmd([[colorscheme nordic]])
+vim.cmd([[
+  hi Normal guibg=NONE ctermbg=NONE
+  hi NormalNC guibg=NONE ctermbg=NONE
+  hi SignColumn guibg=NONE ctermbg=NONE
+  hi NormalFloat guibg=NONE ctermbg=NONE
+  hi FloatBorder guibg=NONE ctermbg=NONE
+]])
+
+-- Treesitter Configuration
+require("nvim-treesitter.configs").setup({
+	ensure_installed = { "lua", "python", "javascript", "rust", "c", "cpp" },
+	sync_install = false,
+	ignore_install = {},
+	auto_install = true,
+	highlight = {
+		enable = true,
+	},
+	modules = {},
+})
+
+-- Telescope Setup
+require("telescope").setup({})
+
+-- Comment.nvim Setup
+require("Comment").setup({})
+
+-- Nvim-Tree Setup with matching background
+require("nvim-tree").setup()
+vim.cmd([[
+  hi NvimTreeNormal guibg=NONE ctermbg=NONE
+  hi NvimTreeEndOfBuffer guibg=NONE ctermbg=NONE
+  hi NvimTreeVertSplit guibg=NONE ctermbg=NONE
+  hi NvimTreeStatusLine guibg=NONE ctermbg=NONE
+  hi NvimTreeNormalNC guibg=NONE ctermbg=NONE
+]])
+
+-- Gitsigns Setup
+require("gitsigns").setup({
+	signs = {
+		add = { text = "+" },
+		change = { text = "~" },
+		delete = { text = "-" },
+		topdelete = { text = "-" },
+		changedelete = { text = "~" },
+	},
+	signcolumn = true,
+	numhl = false,
+	linehl = false,
+	word_diff = false,
+	watch_gitdir = {
+		interval = 1000,
+		follow_files = true,
+	},
+	attach_to_untracked = true,
+	current_line_blame = false,
+	current_line_blame_opts = {
+		virt_text = true,
+		virt_text_pos = "eol",
+		delay = 500,
+		ignore_whitespace = false,
+	},
+	update_debounce = 100,
+	status_formatter = nil,
+	on_attach = function(bufnr)
+		local gs = package.loaded.gitsigns
+
+		local function map(mode, l, r, opts)
+			opts = opts or {}
+			opts.buffer = bufnr
+			vim.keymap.set(mode, l, r, opts)
+		end
+
+		-- Navigation
+		map("n", "]c", function()
+			if vim.wo.diff then
+				vim.cmd.normal({ "]c", bang = true })
+			else
+				gs.nav_hunk("next")
+			end
+		end)
+
+		map("n", "[c", function()
+			if vim.wo.diff then
+				vim.cmd.normal({ "[c", bang = true })
+			else
+				gs.nav_hunk("prev")
+			end
+		end)
+
+		-- Actions
+		map("n", "gs", gs.stage_hunk)
+		map("n", "gp", gs.preview_hunk)
+		map("n", "gb", function()
+			gs.blame_line({ full = true })
+		end)
+	end,
+})
+
+require("luasnip.loaders.from_vscode").lazy_load({
+	paths = { vim.fn.stdpath("config") .. "/vscode-snippets" },
+})
+
+-- Customize nvim-web-devicons
+local palette = require("nordic.colors")
+local c_color = palette.blue0
+local h_color = palette.magenta.base
+
+require("nvim-web-devicons").set_icon({
+	c = { icon = "", color = c_color, name = "C_alt" },
+	cpp = { icon = "", color = c_color, name = "Cpp_alt" },
+	h = { icon = "", color = h_color, name = "H_alt" },
+	hpp = { icon = "", color = h_color, name = "Hpp_alt" },
+})
+
+

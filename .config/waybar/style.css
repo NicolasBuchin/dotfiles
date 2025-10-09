@@ -1,0 +1,289 @@
+/* ---- Configuration ---- */
+@define-color background rgba(0,0,0,0.5);
+@define-color background2 rgba(0,0,0,0.8);
+@define-color foreground #ffffff;
+@define-color dim #6c7086;
+@define-color arch-hover #D6AA54;
+
+@define-color pastel-green rgba(130, 150, 135, 0.5);
+@define-color pastel-yellow rgba(170, 160, 120, 0.5);
+@define-color pastel-cpu rgba(255, 223, 186, 0.5);
+@define-color pastel-ram rgba(178, 255, 186, 0.5);
+@define-color pastel-gpu rgba(186, 225, 255, 0.5);
+@define-color pastel-temp rgba(255, 179, 186, 0.5);
+
+@define-color battery-warning #ffcc00;
+@define-color battery-critical #ff6b6b;
+@define-color battery-charging #ffffff;
+
+/* Import dynamic music color (fallback handled in cover.sh) */
+@import url("music-color.css");
+
+/* ---- General ---- */
+* {
+    color: unset;
+    border: none;
+    border-radius: 0;
+    font-family: "Iosevka Nerd Font", "SpaceMono Nerd Font", sans-serif;
+    font-size: 15px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @background;
+}
+
+tooltip {
+    background: @background2;
+    color: @foreground;
+    border: 2px solid @dim;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+/* ---- Modules ---- */
+.modules-left,
+.modules-right {
+    background: transparent;
+    margin: 5px 0 5px 0; 
+    padding: 0px 5px 0px 5px;
+    border-radius: 7px;
+}
+
+.modules-left {
+    margin-left: 10px;
+}
+
+.modules-center {
+    padding: 0;
+}
+
+.modules-right {
+    margin-right: 10px;
+}
+
+/* ---- Groups ---- */
+#Utilities,
+#workspaces,
+#hardware,
+#system {
+    background: transparent;
+}
+
+#music {
+    /* Dynamic background set by music-color.css */
+    /* Fallback if CSS file doesn't load */
+    border-radius: 3px;
+    padding: 2px 0px;
+    transition: background 0.5s ease;
+    color: @foreground;
+}
+
+/* ---- Individual Modules ---- */
+#custom-arch,
+#idle_inhibitor,
+#custom-powerprofile,
+#custom-themeswitcher,
+#workspaces,
+#window,
+#cpu,
+#memory,
+#custom-gpu-usage,
+#temperature,
+#clock,
+#pulseaudio,
+#bluetooth,
+#network,
+#battery,
+#backlight,
+#tray,
+#custom-swaync,
+#custom-clipboard {
+    color: @foreground;
+    background: transparent;
+    padding: 0px 3px;
+    transition: all 0.3s ease;
+}
+
+/* ---- Arch Icon ---- */
+#custom-arch {
+    font-size: 24px;
+    padding: 0px 8px;
+    transition: color 0.3s ease;
+}
+
+#custom-arch:hover {
+    color: @arch-hover;
+}
+
+/* ---- Brackets and Separators ---- */
+#custom-split {
+    color: @dim;
+    background: transparent;
+    padding: 0;
+    font-size: 20px;
+}
+
+#custom-openbracket {
+    color: @dim;
+    background: transparent;
+    padding: 0px 0px 0px 7px;
+    font-size: 22px;
+}
+
+#custom-closebracket {
+    color: @dim;
+    background: transparent;
+    padding: 0px 7px 0px 0px;
+    font-size: 22px;
+}
+
+/* ---- Workspaces ---- */
+#workspaces {
+    padding: 0px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: @dim;
+    padding: 0px 7px;
+    margin: 0px 0px;
+    transition: all 0.3s ease;
+    text-shadow: none;
+}
+
+#workspaces button:hover, 
+#workspaces button.active {
+    background: @pastel-green;
+    color: @foreground;
+    border-radius: 5px;
+    text-shadow: none;
+    transition: color 0.3s ease;
+}
+
+#workspaces button.urgent {
+    color: @pastel-yellow;
+}
+
+/* ---- Window ---- */
+#window {
+    background: transparent;
+    margin: 5px 0 5px 0; 
+    padding: 0px 10px;
+    border-radius: 7px;
+}
+
+#waybar.empty #window {
+    border: none;
+    padding: 0;
+}
+
+/* ---- Hardware Modules ---- */
+#cpu,
+#memory,
+#custom-gpu-usage,
+#temperature {
+    padding: 0px 5px;
+}
+
+/* ---- System Modules ---- */
+#clock {
+    padding: 0px 5px;
+}
+
+#pulseaudio,
+#bluetooth,
+#network,
+#battery,
+#backlight {
+    padding: 0px 5px;
+}
+
+#battery.warning {
+    color: @battery-warning;
+}
+
+#battery.critical {
+    color: @battery-critical;
+}
+
+#battery.charging {
+    color: @battery-charging;
+}
+
+/* ---- Tray ---- */
+#tray {
+    padding: 0px 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* ---- Notification Center ---- */
+#custom-swaync {
+    padding: 0px 8px;
+    margin: 0;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+#custom-swaync:hover {
+    background: @pastel-yellow;
+    border-radius: 5px;
+}
+
+/* ---- Hover Effects ---- */
+#idle_inhibitor:hover,
+#cpu:hover,
+#memory:hover,
+#custom-gpu-usage:hover,
+#temperature:hover,
+#clock:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#network:hover,
+#battery:hover,
+#backlight:hover,
+#custom-clipboard:hover {
+    background: @pastel-green;
+    border-radius: 5px;
+}
+
+#cpu {
+    color: @pastel-cpu;
+    transition: color 0.3s;
+}
+
+#memory {
+    color: @pastel-ram;
+    transition: color 0.3s;
+}
+
+#custom-gpu-usage {
+    color: @pastel-gpu;
+    transition: color 0.3s;
+}
+
+#temperature {
+    color: @pastel-temp;
+    transition: color 0.3s;
+}
+
+#cpu:hover,
+#memory:hover,
+#custom-gpu-usage:hover,
+#temperature:hover {
+    color: @foreground;
+}
+
+
+#image#cover {
+  margin-right: 6px;
+  min-width: 0;
+  padding: 0;
+}
