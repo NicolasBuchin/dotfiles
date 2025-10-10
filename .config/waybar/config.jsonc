@@ -120,7 +120,7 @@
 
     "image#cover": {
         "exec": "/home/nico/.config/waybar/cover.sh",
-        "interval": 2,
+        "interval": 1,
         // "size": 24,
         "tooltip": false,
         "on-scroll-up": "",

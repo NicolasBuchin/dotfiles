@@ -16,8 +16,9 @@
 @define-color battery-critical #ff6b6b;
 @define-color battery-charging #ffffff;
 
-/* Import dynamic music color (fallback handled in cover.sh) */
-@import url("music-color.css");
+/* Dynamic music colors - updated by cover.sh */
+@define-color music-bg rgba(65,52,88,1.0);
+@define-color music-hover rgba(169,159,165,1.000);
 
 /* ---- General ---- */
 * {
@@ -37,8 +38,8 @@ tooltip {
     background: @background2;
     color: @foreground;
     border: 2px solid @dim;
-    border-radius: 7px;
-    padding: 10px;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 /* ---- Modules ---- */
@@ -47,7 +48,7 @@ tooltip {
     background: transparent;
     margin: 5px 0 5px 0; 
     padding: 0px 5px 0px 5px;
-    border-radius: 7px;
+    border-radius: 5px;
 }
 
 .modules-left {
@@ -71,12 +72,14 @@ tooltip {
 }
 
 #music {
-    /* Dynamic background set by music-color.css */
-    /* Fallback if CSS file doesn't load */
+    background: @music-bg;
     border-radius: 3px;
-    padding: 2px 0px;
-    transition: background 0.5s ease;
+    transition: background 180ms ease;
     color: @foreground;
+}
+
+#music:hover {
+    background: @music-hover;
 }
 
 /* ---- Individual Modules ---- */
@@ -146,8 +149,8 @@ tooltip {
 #workspaces button {
     background: transparent;
     color: @dim;
-    padding: 0px 7px;
-    margin: 0px 0px;
+    padding: 0px 6px;
+    margin: 0;
     transition: all 0.3s ease;
     text-shadow: none;
 }
@@ -170,7 +173,6 @@ tooltip {
     background: transparent;
     margin: 5px 0 5px 0; 
     padding: 0px 10px;
-    border-radius: 7px;
 }
 
 #waybar.empty #window {
@@ -280,7 +282,6 @@ tooltip {
 #temperature:hover {
     color: @foreground;
 }
-
 
 #image#cover {
   margin-right: 6px;
