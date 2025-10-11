@@ -44,6 +44,17 @@ fi
 echo "Repo: $REPO_DIR"
 echo "Dry run: $DRY_RUN"
 
+# ---- CLEAN OLD CONFIGS FIRST ----
+# We'll only clean inside the repo's .config to avoid touching unrelated files
+if [[ -d "$REPO_DIR/.config" ]]; then
+  echo "Cleaning old .config in repo..."
+  if [[ $DRY_RUN -eq 1 ]]; then
+    echo "+ rm -rf \"$REPO_DIR/.config\""
+  else
+    rm -rf "$REPO_DIR/.config"
+  fi
+fi
+
 # Copy items into repo, preserving path under repo (strip $HOME)
 for src in "${items[@]}"; do
   if [[ -e "$src" ]]; then
@@ -55,10 +66,10 @@ for src in "${items[@]}"; do
       if [[ $DRY_RUN -eq 1 ]]; then
         echo "+ $COPY_CMD --dry-run \"$src\" \"$destdir/\""
       else
-        rsync -a "$src" "$destdir/"
+        rsync -a --delete "$src" "$destdir/"
       fi
     else
-      # cp fallback
+      # cp fallback (no --delete support)
       if [[ -d "$src" ]]; then
         if [[ $DRY_RUN -eq 1 ]]; then
           echo "+ cp -a \"$src\" \"$destdir/\""

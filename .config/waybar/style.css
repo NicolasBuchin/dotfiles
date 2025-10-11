@@ -17,8 +17,8 @@
 @define-color battery-charging #ffffff;
 
 /* Dynamic music colors - updated by cover.sh */
-@define-color music-bg rgba(65,52,88,1.0);
-@define-color music-hover rgba(169,159,165,1.000);
+@define-color music-bg rgba(65,84,155,1.0);
+@define-color music-hover rgba(89,113,202,0.600);
 
 /* ---- General ---- */
 * {

@@ -94,8 +94,9 @@
 
     "custom/arch": {
         "format": " ",
+        "on-click": "pkill waybar; nohup waybar >/dev/null 2>&1 &",
         "tooltip": true,
-        "tooltip-format": "btw",
+        "tooltip-format": "restart",
         "on-scroll-up": "",
         "on-scroll-down": ""
     },
@@ -121,7 +122,7 @@
     "image#cover": {
         "exec": "/home/nico/.config/waybar/cover.sh",
         "interval": 1,
-        // "size": 24,
+        "size": 18,
         "tooltip": false,
         "on-scroll-up": "",
         "on-scroll-down": ""

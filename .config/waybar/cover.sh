@@ -5,7 +5,7 @@
 set -euo pipefail
 
 # --- configuration ---
-SQUARE_SIZE=32            
+SQUARE_SIZE=18            
 MAX_DOWNLOAD_SIZE=1048576 
 STALE_DAYS=7              
 # ----------------------
@@ -142,7 +142,7 @@ extract_dark_area_color() {
   local colors="${TMP_PREFIX}.colors"
   local sorted="${TMP_PREFIX}.colors.sorted"
 
-  if ! "$IMGCMD" "$img" -auto-orient -resize 200x200\> -colors 64 -format "%c\n" histogram:info:- 2> /dev/null > "$histf"; then
+  if ! "$IMGCMD" "$img" -auto-orient -resize 16x16\> -colors 64 -format "%c\n" histogram:info:- 2> /dev/null > "$histf"; then
     echo "transparent" > "$out"
     return 1
   fi
@@ -165,8 +165,9 @@ extract_dark_area_color() {
   fi
 
   sort -n "$colors" > "$sorted"
-
-  target=$(awk -v t="$total" 'BEGIN{printf "%.0f", t*0.25}')
+    
+  # 30% darkest color
+  target=$(awk -v t="$total" 'BEGIN{printf "%.0f", t*0.3}')
 
   awk -v target="$target" '
     BEGIN { cum=0; rsum=0; gsum=0; bsum=0; }
