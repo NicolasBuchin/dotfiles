@@ -94,7 +94,7 @@
 
     "custom/arch": {
         "format": " ",
-        "on-click": "pkill waybar; nohup waybar >/dev/null 2>&1 &",
+        "on-click": "pkill waybar; rm $XDG_RUNTIME_DIR/waybar-mpris-covers/*; nohup waybar >/dev/null 2>&1 &",
         "tooltip": true,
         "tooltip-format": "restart",
         "on-scroll-up": "",
@@ -120,7 +120,7 @@
     },
 
     "image#cover": {
-        "exec": "/home/nico/.config/waybar/cover.sh",
+        "exec": "~/.config/waybar/cover.sh",
         "interval": 1,
         "size": 18,
         "tooltip": false,
@@ -129,7 +129,6 @@
     },
 
     "mpris": {
-        // "format": " {player_icon} {status_icon} | {dynamic} ",
         "format": " {status_icon} | {dynamic} {player_icon} ",
         "interval": 1,
         "dynamic-len": 50,
@@ -145,7 +144,7 @@
         "player-icons": {
           "spotify": " ",
           "vlc": "󰕼 ",
-          "firefox": " ",
+          "firefox": "󰈹 ",
           "chromium": " ",
           "mpv": " ",
           "default": ""
@@ -219,17 +218,17 @@
         "format": "CPU:{usage}%",
         "exec": "top -bn1 | grep 'Cpu' | awk '{print $2}'",
         "interval": 2,
-        "tooltip": false,
+        "exec-tooltip": "mpstat -P ALL 1 1 | awk '/^Average/ && $2 ~ /[0-9]+/ {printf \"Core %s: %s%%\\n\", $2, 100-$12}'",
         "on-click": "alacritty -e htop",
         "on-scroll-up": "",
         "on-scroll-down": ""
     },
 
     "custom/gpu-usage": {
-        "format": "GPU:{}%",
-        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+        "format": "GPU:{}",
+        "return-type": "json",
+        "exec": "~/.config/waybar/gpu.sh",
         "interval": 2,
-        "tooltip": false,
         "on-click": "alacritty -e nvtop",
         "on-scroll-up": "",
         "on-scroll-down": ""
@@ -254,7 +253,7 @@
     "temperature": {
         "format": "{temperatureC}°C",
         "interval": 10,
-        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input",
+        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input",
         "on-scroll-up": "",
         "on-scroll-down": ""
     },
@@ -282,8 +281,8 @@
 
     "custom/swaync": {
         "format": " ",
-        "tooltip": false,
-        "exec": "swaync-client --count",
+        "return-type": "json",
+        "exec": "~/.config/waybar/swaync.sh",
         "on-click": "swaync-client -t",
         "interval": 1,
         "on-scroll-up": "",
