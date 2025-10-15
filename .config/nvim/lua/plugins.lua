@@ -79,7 +79,10 @@ vim.api.nvim_create_autocmd("BufRead", {
 
 -- Theme Setup
 require("nordic").setup({
-	transparent_bg = true,
+	transparent = {
+		bg = true,
+		float = true,
+	},
 	cursorline = { theme = "light" },
 	telescope = { style = "classic" },
 	on_palette = function(palette)

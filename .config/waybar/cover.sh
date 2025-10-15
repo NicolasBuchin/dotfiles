@@ -218,7 +218,10 @@ update_css_variables() {
     "$STYLE_CSS" 2>/dev/null || true
 }
 
-player=$(playerctl metadata --format '{{playerName}}' 2>/dev/null || true)
+meta="$(playerctl metadata --format '{{mpris:artUrl}}|{{playerName}}' 2>/dev/null || true)"
+art="${meta%%|*}"
+player="${meta#*|}"
+
 if [ -z "$player" ]; then
   ensure_transparent_png
   update_css_variables "transparent" "transparent"
@@ -226,7 +229,6 @@ if [ -z "$player" ]; then
   exit 0
 fi
 
-art=$(playerctl metadata --format '{{mpris:artUrl}}' 2>/dev/null || true)
 if [ -z "$art" ]; then
   ensure_transparent_png
   update_css_variables "transparent" "transparent"

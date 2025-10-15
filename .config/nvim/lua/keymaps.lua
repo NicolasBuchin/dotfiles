@@ -27,6 +27,11 @@ vim.keymap.set("v", "d", '"_d', { noremap = true })
 vim.keymap.set("n", "D", '"_D', { noremap = true })
 vim.keymap.set("v", "D", '"_D', { noremap = true })
 
+-- Preserve register when pasting over a visual selection
+-- Delete selection to the black hole register then put the default register
+vim.keymap.set({ "v", "x" }, "p", '"_dP', { noremap = true, silent = true })
+vim.keymap.set({ "v", "x" }, "P", '"_dP', { noremap = true, silent = true })
+
 -- Same for change (c)
 vim.keymap.set("n", "c", '"_c', { noremap = true })
 vim.keymap.set("v", "c", '"_c', { noremap = true })

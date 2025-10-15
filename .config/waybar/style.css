@@ -17,8 +17,8 @@
 @define-color battery-charging #ffffff;
 
 /* Dynamic music colors - updated by cover.sh */
-@define-color music-bg rgba(20,20,25,1.0);
-@define-color music-hover rgba(99,99,102,0.600);
+@define-color music-bg transparent;
+@define-color music-hover rgba(170,160,120,0.5);
 
 /* ---- General ---- */
 * {
@@ -28,6 +28,7 @@
     font-family: "Iosevka Nerd Font", "SpaceMono Nerd Font", sans-serif;
     font-size: 15px;
     min-height: 0;
+    transition: 0s;
 }
 
 window#waybar {
@@ -74,7 +75,7 @@ tooltip {
 #music {
     background: @music-bg;
     border-radius: 3px;
-    transition: background 180ms ease;
+    transition: background 180ms;
     color: @foreground;
 }
 
@@ -105,14 +106,14 @@ tooltip {
     color: @foreground;
     background: transparent;
     padding: 0px 3px;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
 }
 
 /* ---- Arch Icon ---- */
 #custom-arch {
     font-size: 24px;
     padding: 0px 8px;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 #custom-arch:hover {
@@ -151,7 +152,7 @@ tooltip {
     color: @dim;
     padding: 0px 6px;
     margin: 0;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     text-shadow: none;
 }
 
@@ -161,7 +162,7 @@ tooltip {
     color: @foreground;
     border-radius: 5px;
     text-shadow: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 #workspaces button.urgent {
@@ -231,7 +232,7 @@ tooltip {
     padding: 0px 8px;
     margin: 0;
     font-size: 18px;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
 }
 
 #custom-swaync:hover {

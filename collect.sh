@@ -20,6 +20,7 @@ items=(
   "$HOME/.config/nvim"
   "$HOME/.config/fastfetch"
   "$HOME/.config/nemo"
+  "$HOME/.config/eza"
   "$HOME/.config/gtk-3.0"
   "$HOME/.config/swaync"
 )

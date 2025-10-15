@@ -1,0 +1,3114 @@
+filekinds:
+  symlink:
+    foreground: "#D8DEE9"
+  directory:
+    foreground: "#E7C173"
+  normal:
+    foreground: "#C0C8D8"
+extensions:
+  epub:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  tsx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  eot:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  pub:
+    icon:
+      glyph: 󰷖
+    filename:
+      foreground: "#EBCB8B"
+  eln:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  pyi:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  stories.mjs:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  dot:
+    icon:
+      glyph: 󱁉
+    filename:
+      foreground: "#60728A"
+  stories.jsx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  tmux:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  pyx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  elc:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  step:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  pxd:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  R:
+    icon:
+      glyph: 󰟔
+    filename:
+      foreground: "#5E81AC"
+  templ:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  ebook:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  diff:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  dxf:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  mustache:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  spx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  desktop:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  psd1:
+    icon:
+      glyph: 󰨊
+    filename:
+      foreground: "#5E81AC"
+  spec.tsx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  cc:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BF616A"
+  spec.ts:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  spec.jsx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  download:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#80B3B2"
+  cue:
+    icon:
+      glyph: 󰲹
+    filename:
+      foreground: "#D79784"
+  tcl:
+    icon:
+      glyph: 󰛓
+    filename:
+      foreground: "#5E81AC"
+  csv:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  dockerignore:
+    icon:
+      glyph: 󰡨
+    filename:
+      foreground: "#5E81AC"
+  slvs:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  rb:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#242933"
+  ai:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  pcm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  dconf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  sldprt:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  sldasm:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  part:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#80B3B2"
+  skp:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  out:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  signature:
+    icon:
+      glyph: 󰘧
+    filename:
+      foreground: "#CB775D"
+  sha512:
+    icon:
+      glyph: 󰕥
+    filename:
+      foreground: "#8D9096"
+  cjs:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  mjs:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  a:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  cuh:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  ogx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  sha224:
+    icon:
+      glyph: 󰕥
+    filename:
+      foreground: "#8D9096"
+  sha1:
+    icon:
+      glyph: 󰕥
+    filename:
+      foreground: "#8D9096"
+  cshtml:
+    icon:
+      glyph: 󱦗
+    filename:
+      foreground: "#5E81AC"
+  oga:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  odt:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#88C0D0"
+  html:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  cr:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C0C8D8"
+  config.ru:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#242933"
+  ods:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  crdownload:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#80B3B2"
+  cxxm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  odp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  ccm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BF616A"
+  cljd:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  odg:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  heex:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  s:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  cpp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  odf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  t:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  gv:
+    icon:
+      glyph: 󱁉
+    filename:
+      foreground: "#60728A"
+  luau:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  feature:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#2E3440"
+  exe:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  bz3:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  cbl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  cob:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  cppm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  conf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  graphql:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  brep:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  hpp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  sha384:
+    icon:
+      glyph: 󰕥
+    filename:
+      foreground: "#8D9096"
+  qm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  ste:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  mli:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  ml:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  nix:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#88C0D0"
+  fbx:
+    icon:
+      glyph: 󰆧
+    filename:
+      foreground: "#8D9096"
+  norg:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  hs:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  js:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  blade.php:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  fcparam:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  fcscript:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  nfo:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  bin:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  mpp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  r:
+    icon:
+      glyph: 󰟔
+    filename:
+      foreground: "#5E81AC"
+  mp4:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  fcstd1:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  pp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  ex:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  mov:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  info:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  mobi:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  org:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#80B3B2"
+  sublime:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  nu:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  razor:
+    icon:
+      glyph: 󱦘
+    filename:
+      foreground: "#5E81AC"
+  ical:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  azcli:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  stories.js:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  cfg:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  sig:
+    icon:
+      glyph: 󰘧
+    filename:
+      foreground: "#CB775D"
+  ksh:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  erb:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#242933"
+  wrz:
+    icon:
+      glyph: 󰆧
+    filename:
+      foreground: "#8D9096"
+  ebuild:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  ics:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  o:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  fsx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  go:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  env:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  flc:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  dwg:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  ada:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  h:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  Dockerfile:
+    icon:
+      glyph: 󰡨
+    filename:
+      foreground: "#5E81AC"
+  nswag:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  app:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  c:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  apk:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  fodg:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  ige:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  ape:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  mm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  android:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  fods:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  aiff:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  md:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  aif:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  iges:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  pyc:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#EFD49F"
+  msf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  mk:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  pyd:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#EFD49F"
+  m:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  git:
+    icon:
+      glyph: 
+  swift:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  image:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BBC3D4"
+  tres:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  img:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BBC3D4"
+  material:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BF616A"
+  svelte:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  lua:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  mp3:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  xml:
+    icon:
+      glyph: 󰗀
+    filename:
+      foreground: "#CB775D"
+  adb:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  dll:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#222630"
+  cljs:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  cljc:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  htm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  applescript:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  bash:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  rar:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  sh:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  ino:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#80B3B2"
+  fcmat:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  iso:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BBC3D4"
+  bzl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  mojo:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  sub:
+    icon:
+      glyph: 󰨖
+    filename:
+      foreground: "#E7C173"
+  ixx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  markdown:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  ply:
+    icon:
+      glyph: 󰆧
+    filename:
+      foreground: "#8D9096"
+  woff2:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  dump:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  edn:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  obj:
+    icon:
+      glyph: 󰆧
+    filename:
+      foreground: "#8D9096"
+  yml:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  sql:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  hxx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  toml:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  cache:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  csh:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  sqlite:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  ipynb:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  webmanifest:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  hurl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  json:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  slnx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  elf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  bz2:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  gresource:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  db:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  cow:
+    icon:
+      glyph: 󰆚
+    filename:
+      foreground: "#B74E58"
+  bazel:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  rs:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D79784"
+  scss:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  qml:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  scm:
+    icon:
+      glyph: 󰘧
+    filename:
+      foreground: "#ECEFF4"
+  sln:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  v:
+    icon:
+      glyph: 󰍛
+    filename:
+      foreground: "#3B4252"
+  bz:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  cs:
+    icon:
+      glyph: 󰌛
+    filename:
+      foreground: "#2E3440"
+  json5:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  resi:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  res:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  slim:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  opus:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  ogv:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  aac:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  lib:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#222630"
+  fnl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  7z:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  3mf:
+    icon:
+      glyph: 󰆧
+    filename:
+      foreground: "#8D9096"
+  3gp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  xz:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  gd:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  kbx:
+    icon:
+      glyph: 󰯄
+    filename:
+      foreground: "#60728A"
+  vala:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  f90:
+    icon:
+      glyph: 󱈚
+    filename:
+      foreground: "#60728A"
+  scala:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  kdb:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  ads:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  jar:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  asm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  gnumakefile:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  jpeg:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  tex:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#2E3440"
+  sha256:
+    icon:
+      glyph: 󰕥
+    filename:
+      foreground: "#8D9096"
+  fsi:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  http:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  less:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  ttf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  wrl:
+    icon:
+      glyph: 󰆧
+    filename:
+      foreground: "#8D9096"
+  kicad_pcb:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  ui:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  styl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  mts:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  fcstd:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  d.ts:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D08770"
+  pyw:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  spec.js:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  psm1:
+    icon:
+      glyph: 󰨊
+    filename:
+      foreground: "#5E81AC"
+  frag:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  stl:
+    icon:
+      glyph: 󰆧
+    filename:
+      foreground: "#8D9096"
+  strings:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  ko:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  bicepparam:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  glsl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  fsscript:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  rproj:
+    icon:
+      glyph: 󰗆
+    filename:
+      foreground: "#434C5E"
+  f#:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  geom:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  vim:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#3B4252"
+  stories.svelte:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  epp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  import:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  query:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  gradle:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  dart:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  m3u:
+    icon:
+      glyph: 󰲹
+    filename:
+      foreground: "#D79784"
+  zst:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  m3u8:
+    icon:
+      glyph: 󰲹
+    filename:
+      foreground: "#D79784"
+  rlib:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D79784"
+  sass:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  log:
+    icon:
+      glyph: 󰌱
+    filename:
+      foreground: "#D8DEE9"
+  stories.vue:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  zip:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  psb:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  so:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  rake:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#242933"
+  terminal:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  gemspec:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#242933"
+  ppt:
+    icon:
+      glyph: 󰈧
+    filename:
+      foreground: "#B74E58"
+  avif:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  conda:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  xpi:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  bqn:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  coffee:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  c++:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BF616A"
+  gif:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  png:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  xm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  jpg:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  webp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  jxl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  gql:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  zsh:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  🔥:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  sc:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  xcstrings:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  mint:
+    icon:
+      glyph: 󰌪
+    filename:
+      foreground: "#A3BE8C"
+  patch:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  cp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  drl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#EFD49F"
+  lhs:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  license:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  xcf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  otf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  cast:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  rmd:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  pxi:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  xaml:
+    icon:
+      glyph: 󰙳
+    filename:
+      foreground: "#5E81AC"
+  bak:
+    icon:
+      glyph: 󰁯
+    filename:
+      foreground: "#60728A"
+  makefile:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  webm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  vert:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  xlsx:
+    icon:
+      glyph: 󰈛
+    filename:
+      foreground: "#3B4252"
+  wvc:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  xls:
+    icon:
+      glyph: 󰈛
+    filename:
+      foreground: "#3B4252"
+  webpack:
+    icon:
+      glyph: 󰜫
+    filename:
+      foreground: "#5E81AC"
+  wasm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  suo:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  wv:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  sqlite3:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  jsonc:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  pyo:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#EFD49F"
+  cpy:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  md5:
+    icon:
+      glyph: 󰕥
+    filename:
+      foreground: "#8D9096"
+  psd:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  ass:
+    icon:
+      glyph: 󰨖
+    filename:
+      foreground: "#E7C173"
+  ssa:
+    icon:
+      glyph: 󰨖
+    filename:
+      foreground: "#E7C173"
+  txt:
+    icon:
+      glyph: 󰈙
+    filename:
+      foreground: "#97B67C"
+  pot:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  woff:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  wmv:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  magnet:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  tfvars:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  mdx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  wma:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  m4v:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  lock:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BBC3D4"
+  m4a:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  ifb:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  java:
+    icon:
+      glyph: 
+  godot:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  ico:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  wav:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  blend:
+    icon:
+      glyph: 󰂫
+    filename:
+      foreground: "#CB775D"
+  luac:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  glb:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  jl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  gpr:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  ejs:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  dropbox:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  pro:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  vsix:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  docx:
+    icon:
+      glyph: 󰈬
+    filename:
+      foreground: "#5E81AC"
+  doc:
+    icon:
+      glyph: 󰈬
+    filename:
+      foreground: "#5E81AC"
+  cson:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  pck:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  ini:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  vi:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  bmp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  lff:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  apl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  hx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  cobol:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  tmpl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  vh:
+    icon:
+      glyph: 󰍛
+    filename:
+      foreground: "#3B4252"
+  sol:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  cts:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  hex:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  pm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  mkv:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  xcplayground:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  bat:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  krz:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BE9DB8"
+  css:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  kra:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BE9DB8"
+  kpp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BE9DB8"
+  sv:
+    icon:
+      glyph: 󰍛
+    filename:
+      foreground: "#3B4252"
+  svh:
+    icon:
+      glyph: 󰍛
+    filename:
+      foreground: "#3B4252"
+  gleam:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  kicad_wks:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  txz:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  kicad_sym:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  kicad_sch:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  kicad_pro:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  kicad_prl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  stp:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  kicad_mod:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  kicad_dru:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  kdenlivetitle:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#88C0D0"
+  cmake:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#D8DEE9"
+  kdenlive:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#88C0D0"
+  kdbx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  tsconfig:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  d:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  tf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  cfm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  yaml:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  cfc:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  hh:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  torrent:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#80B3B2"
+  cxx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  eex:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  vsh:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  jwmrc:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  rasi:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  x:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  prisma:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  gz:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  cu:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  odin:
+    icon:
+      glyph: 󰟢
+    filename:
+      foreground: "#5E81AC"
+  ps1:
+    icon:
+      glyph: 󰨊
+    filename:
+      foreground: "#5E81AC"
+  lrc:
+    icon:
+      glyph: 󰨖
+    filename:
+      foreground: "#E7C173"
+  tgz:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  haml:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E5E9F0"
+  pptx:
+    icon:
+      glyph: 󰈧
+    filename:
+      foreground: "#B74E58"
+  blp:
+    icon:
+      glyph: 󰺾
+    filename:
+      foreground: "#81A1C1"
+  hbs:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  ogg:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  fs:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  liquid:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  bicep:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  bib:
+    icon:
+      glyph: 󱉟
+    filename:
+      foreground: "#E7C173"
+  vue:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  py:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  test.tsx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  el:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  po:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  test.ts:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  asc:
+    icon:
+      glyph: 󰦝
+    filename:
+      foreground: "#60728A"
+  test.jsx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  zig:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  test.js:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  rss:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  awk:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  sml:
+    icon:
+      glyph: 󰘧
+    filename:
+      foreground: "#CB775D"
+  gcode:
+    icon:
+      glyph: 󰐫
+    filename:
+      foreground: "#5E81AC"
+  php:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  vhdl:
+    icon:
+      glyph: 󰍛
+    filename:
+      foreground: "#3B4252"
+  stories.tsx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  astro:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  fish:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  tbc:
+    icon:
+      glyph: 󰛓
+    filename:
+      foreground: "#5E81AC"
+  kts:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  igs:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  lck:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BBC3D4"
+  fodt:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#88C0D0"
+  svgz:
+    icon:
+      glyph: 󰜡
+    filename:
+      foreground: "#E7C173"
+  fodp:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  xul:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  ifc:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  pls:
+    icon:
+      glyph: 󰲹
+    filename:
+      foreground: "#D79784"
+  pdf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  flf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#ECEFF4"
+  vhd:
+    icon:
+      glyph: 󰍛
+    filename:
+      foreground: "#3B4252"
+  csproj:
+    icon:
+      glyph: 󰪮
+    filename:
+      foreground: "#5E81AC"
+  kt:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+  flac:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  clj:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  svg:
+    icon:
+      glyph: 󰜡
+    filename:
+      foreground: "#E7C173"
+  icalendar:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#434C5E"
+  hrl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BF616A"
+  sbt:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  fdmdownload:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#80B3B2"
+  typ:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  fctl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  exs:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  fctb:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  jsx:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  leex:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#A97EA1"
+  scad:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  ts:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  huff:
+    icon:
+      glyph: 󰡘
+    filename:
+      foreground: "#5E81AC"
+  fcmacro:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  fcbak:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#B74E58"
+  elm:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  typoscript:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#CB775D"
+  erl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#BF616A"
+  qss:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  qrc:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  f3d:
+    icon:
+      glyph: 󰻫
+    filename:
+      foreground: "#97B67C"
+  pl:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#5E81AC"
+  srt:
+    icon:
+      glyph: 󰨖
+    filename:
+      foreground: "#E7C173"
+  stories.ts:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#C5727A"
+  nim:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#E7C173"
+  twig:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
+  tscn:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#60728A"
+  mo:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#81A1C1"
+links:
+  multi_link_file:
+    foreground: "#D8DEE9"
+  normal:
+    foreground: "#D8DEE9"
+filenames:
+  git:
+    icon:
+      glyph: 
+  go.sum:
+    icon:
+      glyph: 
+  tsconfig.json:
+    icon:
+      glyph: 
+  vite.config.ts:
+    icon:
+      glyph: 
+  vite.config.mts:
+    icon:
+      glyph: 
+  vite.config.mjs:
+    icon:
+      glyph: 
+  vite.config.js:
+    icon:
+      glyph: 
+  vite.config.cts:
+    icon:
+      glyph: 
+  vite.config.cjs:
+    icon:
+      glyph: 
+  .xsession:
+    icon:
+      glyph: 
+  .xinitrc:
+    icon:
+      glyph: 
+  readme:
+    icon:
+      glyph: 󰂺
+  .vimrc:
+    icon:
+      glyph: 
+  .settings.json:
+    icon:
+      glyph: 
+  .luacheckrc:
+    icon:
+      glyph: 
+  .prettierrc.yml:
+    icon:
+      glyph: 
+  .prettierrc.yaml:
+    icon:
+      glyph: 
+  .prettierrc.toml:
+    icon:
+      glyph: 
+  .prettierrc.mjs:
+    icon:
+      glyph: 
+  .prettierrc.json5:
+    icon:
+      glyph: 
+  .prettierrc.json:
+    icon:
+      glyph: 
+  .clang-format:
+    icon:
+      glyph: 
+  .clang-tidy:
+    icon:
+      glyph: 
+  .prettierignore:
+    icon:
+      glyph: 
+  .pre-commit-config.yaml:
+    icon:
+      glyph: 󰛢
+  .condarc:
+    icon:
+      glyph: 
+  .pnpmfile.cjs:
+    icon:
+      glyph: 
+  .nvmrc:
+    icon:
+      glyph: 
+  .prettierrc:
+    icon:
+      glyph: 
+  .nuxtrc:
+    icon:
+      glyph: 󱄆
+  .nanorc:
+    icon:
+      glyph: 
+  .mailmap:
+    icon:
+      glyph: 󰊢
+  .gvimrc:
+    icon:
+      glyph: 
+  .gtkrc-2.0:
+    icon:
+      glyph: 
+  .gitlab-ci.yml:
+    icon:
+      glyph: 
+  prettier.config.ts:
+    icon:
+      glyph: 
+  hyprpaper.conf:
+    icon:
+      glyph: 
+  .zshrc:
+    icon:
+      glyph: 
+  hyprland.conf:
+    icon:
+      glyph: 
+  copying:
+    icon:
+      glyph: 
+  prettier.config.mjs:
+    icon:
+      glyph: 
+  node_modules:
+    icon:
+      glyph: 
+  brewfile:
+    icon:
+      glyph: 
+  pom.xml:
+    icon:
+      glyph: 
+  .env:
+    icon:
+      glyph: 
+  pnpm-workspace.yaml:
+    icon:
+      glyph: 
+  unlicense:
+    icon:
+      glyph: 
+  vagrantfile:
+    icon:
+      glyph: 
+  pnpm-lock.yaml:
+    icon:
+      glyph: 
+  .zshenv:
+    icon:
+      glyph: 
+  .ds_store:
+    icon:
+      glyph: 
+  security:
+    icon:
+      glyph: 󰒃
+  playwright.config.mts:
+    icon:
+      glyph: 
+  playwright.config.mjs:
+    icon:
+      glyph: 
+  playwright.config.js:
+    icon:
+      glyph: 
+  playwright.config.cts:
+    icon:
+      glyph: 
+  playwright.config.cjs:
+    icon:
+      glyph: 
+  platformio.ini:
+    icon:
+      glyph: 
+  package.json:
+    icon:
+      glyph: 
+  procfile:
+    icon:
+      glyph: 
+  robots.txt:
+    icon:
+      glyph: 󰚩
+  package-lock.json:
+    icon:
+      glyph: 
+  nuxt.config.ts:
+    icon:
+      glyph: 󱄆
+  nuxt.config.mjs:
+    icon:
+      glyph: 󱄆
+  nuxt.config.js:
+    icon:
+      glyph: 󱄆
+  nuxt.config.cjs:
+    icon:
+      glyph: 󱄆
+  copying.lesser:
+    icon:
+      glyph: 
+  groovy:
+    icon:
+      glyph: 
+  next.config.ts:
+    icon:
+      glyph: 
+  .eslintignore:
+    icon:
+      glyph: 
+  next.config.js:
+    icon:
+      glyph: 
+  dockerfile:
+    icon:
+      glyph: 󰡨
+  gemfile:
+    icon:
+      glyph: 
+  .npmrc:
+    icon:
+      glyph: 
+  i18n.config.js:
+    icon:
+      glyph: 󰗊
+  hyprsunset.conf:
+    icon:
+      glyph: 
+  fp-lib-table:
+    icon:
+      glyph: 
+  .gitconfig:
+    icon:
+      glyph: 
+  .babelrc:
+    icon:
+      glyph: 
+  .editorconfig:
+    icon:
+      glyph: 
+  go.work:
+    icon:
+      glyph: 
+  .npmignore:
+    icon:
+      glyph: 
+  lxqt.conf:
+    icon:
+      glyph: 
+  gulpfile.ts:
+    icon:
+      glyph: 
+  .dockerignore:
+    icon:
+      glyph: 󰡨
+  gulpfile.coffee:
+    icon:
+      glyph: 
+  .eslintrc:
+    icon:
+      glyph: 
+  mpv.conf:
+    icon:
+      glyph: 
+  freecad.conf:
+    icon:
+      glyph: 
+  .srcinfo:
+    icon:
+      glyph: 󰣇
+  authors.txt:
+    icon:
+      glyph: 
+  directory.packages.props:
+    icon:
+      glyph: 
+  directory.build.props:
+    icon:
+      glyph: 
+  gruntfile.ts:
+    icon:
+      glyph: 
+  authors:
+    icon:
+      glyph: 
+  .xauthority:
+    icon:
+      glyph: 
+  jenkinsfile:
+    icon:
+      glyph: 
+  pkgbuild:
+    icon:
+      glyph: 
+  gruntfile.js:
+    icon:
+      glyph: 
+  gruntfile.coffee:
+    icon:
+      glyph: 
+  gruntfile.babel.js:
+    icon:
+      glyph: 
+  .pylintrc:
+    icon:
+      glyph: 
+  kritadisplayrc:
+    icon:
+      glyph: 
+  kdenliverc:
+    icon:
+      glyph: 
+  gradlew:
+    icon:
+      glyph: 
+  xorg.conf:
+    icon:
+      glyph: 
+  gradle.properties:
+    icon:
+      glyph: 
+  kdeglobals:
+    icon:
+      glyph: 
+  gradle-wrapper.properties:
+    icon:
+      glyph: 
+  .bashrc:
+    icon:
+      glyph: 
+  i18n.config.ts:
+    icon:
+      glyph: 󰗊
+  kalgebrarc:
+    icon:
+      glyph: 
+  i3blocks.conf:
+    icon:
+      glyph: 
+  kdenlive-layoutsrc:
+    icon:
+      glyph: 
+  ionic.config.json:
+    icon:
+      glyph: 
+  go.mod:
+    icon:
+      glyph: 
+  bun.lock:
+    icon:
+      glyph: 
+  gnumakefile:
+    icon:
+      glyph: 
+  index.theme:
+    icon:
+      glyph: 
+  justfile:
+    icon:
+      glyph: 
+  fp-info-cache:
+    icon:
+      glyph: 
+  readme.md:
+    icon:
+      glyph: 󰂺
+  favicon.ico:
+    icon:
+      glyph: 
+  i3status.conf:
+    icon:
+      glyph: 
+  qtproject.conf:
+    icon:
+      glyph: 
+  xsettingsd.conf:
+    icon:
+      glyph: 
+  ext_typoscript_setup.txt:
+    icon:
+      glyph: 
+  security.md:
+    icon:
+      glyph: 󰒃
+  license:
+    icon:
+      glyph: 
+  tailwind.config.mjs:
+    icon:
+      glyph: 󱏿
+  eslint.config.ts:
+    icon:
+      glyph: 
+  xmonad.hs:
+    icon:
+      glyph: 
+  hyprlandd.conf:
+    icon:
+      glyph: 
+  tailwind.config.ts:
+    icon:
+      glyph: 󱏿
+  sxhkdrc:
+    icon:
+      glyph: 
+  eslint.config.mjs:
+    icon:
+      glyph: 
+  eslint.config.js:
+    icon:
+      glyph: 
+  eslint.config.cjs:
+    icon:
+      glyph: 
+  .bash_profile:
+    icon:
+      glyph: 
+  kritarc:
+    icon:
+      glyph: 
+  checkhealth:
+    icon:
+      glyph: 󰓙
+  docker-compose.yaml:
+    icon:
+      glyph: 󰡨
+  containerfile:
+    icon:
+      glyph: 󰡨
+  xmobarrc.hs:
+    icon:
+      glyph: 
+  gulpfile.babel.js:
+    icon:
+      glyph: 
+  compose.yml:
+    icon:
+      glyph: 󰡨
+  compose.yaml:
+    icon:
+      glyph: 󰡨
+  commitlint.config.ts:
+    icon:
+      glyph: 󰜘
+  sym-lib-table:
+    icon:
+      glyph: 
+  gtkrc:
+    icon:
+      glyph: 
+  tailwind.config.js:
+    icon:
+      glyph: 󱏿
+  .gitignore:
+    icon:
+      glyph: 
+  commitlint.config.js:
+    icon:
+      glyph: 󰜘
+  docker-compose.yml:
+    icon:
+      glyph: 󰡨
+  workspace:
+    icon:
+      glyph: 
+  rmd:
+    icon:
+      glyph: 
+  code_of_conduct.md:
+    icon:
+      glyph: 
+  makefile:
+    icon:
+      glyph: 
+  .codespellrc:
+    icon:
+      glyph: 󰓆
+  xmobarrc:
+    icon:
+      glyph: 
+  xdph.conf:
+    icon:
+      glyph: 
+  code_of_conduct:
+    icon:
+      glyph: 
+  cmakelists.txt:
+    icon:
+      glyph: 
+  rakefile:
+    icon:
+      glyph: 
+  .prettierrc.cjs:
+    icon:
+      glyph: 
+  tmux.conf:
+    icon:
+      glyph: 
+  config:
+    icon:
+      glyph: 
+  webpack:
+    icon:
+      glyph: 󰜫
+  playwright.config.ts:
+    icon:
+      glyph: 
+  prusaslicergcodeviewer.ini:
+    icon:
+      glyph: 
+  license.md:
+    icon:
+      glyph: 
+  cantorrc:
+    icon:
+      glyph: 
+  wrangler.toml:
+    icon:
+      glyph: 
+  bun.lockb:
+    icon:
+      glyph: 
+  tmux.conf.local:
+    icon:
+      glyph: 
+  .prettierrc.js:
+    icon:
+      glyph: 
+  .zprofile:
+    icon:
+      glyph: 
+  wrangler.jsonc:
+    icon:
+      glyph: 
+  build.zig.zon:
+    icon:
+      glyph: 
+  .gitmodules:
+    icon:
+      glyph: 
+  svelte.config.js:
+    icon:
+      glyph: 
+  settings.gradle:
+    icon:
+      glyph: 
+  weston.ini:
+    icon:
+      glyph: 
+  build.gradle:
+    icon:
+      glyph: 
+  prusaslicer.ini:
+    icon:
+      glyph: 
+  .xresources:
+    icon:
+      glyph: 
+  bspwmrc:
+    icon:
+      glyph: 
+  .git-blame-ignore-revs:
+    icon:
+      glyph: 
+  _vimrc:
+    icon:
+      glyph: 
+  next.config.cjs:
+    icon:
+      glyph: 
+  mix.lock:
+    icon:
+      glyph: 
+  vlcrc:
+    icon:
+      glyph: 󰕼
+  directory.build.targets:
+    icon:
+      glyph: 
+  _gvimrc:
+    icon:
+      glyph: 
+  .justfile:
+    icon:
+      glyph: 
+  vitest.config.ts:
+    icon:
+      glyph: 
+  prettier.config.cjs:
+    icon:
+      glyph: 
+  .gitattributes:
+    icon:
+      glyph: 
+  .luaurc:
+    icon:
+      glyph: 
+  gulpfile.js:
+    icon:
+      glyph: 
+  vitest.config.mts:
+    icon:
+      glyph: 
+  vitest.config.mjs:
+    icon:
+      glyph: 
+  vitest.config.js:
+    icon:
+      glyph: 
+  vitest.config.cts:
+    icon:
+      glyph: 
+  vitest.config.cjs:
+    icon:
+      glyph: 
+  vercel.json:
+    icon:
+      glyph: 
+  commit_editmsg:
+    icon:
+      glyph: 
+  prettier.config.js:
+    icon:
+      glyph: 
+  hypridle.conf:
+    icon:
+      glyph: 
+  hyprlock.conf:
+    icon:
+      glyph: 
+  lxde-rc.xml:
+    icon:
+      glyph: 
+  py.typed:
+    icon:
+      glyph: 
+git_repo:
+  git_clean:
+    foreground: "#8FBCBB"
+  branch_main:
+    foreground: "#8FBCBB"
+  branch_other:
+    foreground: "#EBCB8B"
+  git_dirty:
+    foreground: "#81A1C1"
+file_type:
+  image:
+    foreground: "#A97EA1"
+  temp:
+    foreground: "#8D9096"
+  source:
+    foreground: "#C0C8D8"
+  build:
+    foreground: "#60728A"
+  video:
+    foreground: "#CB775D"
+  music:
+    foreground: "#5E81AC"
+  lossless:
+    foreground: "#5E81AC"
+  crypto:
+    foreground: "#60728A"
+  document:
+    foreground: "#B74E58"
+  compressed:
+    foreground: "#CB775D"
+  compiled:
+    foreground: "#B74E58"
+colourful: true
+git:
+  ignored:
+    foreground: "#8D9096"
+  typechange:
+    foreground: "#EBCB8B"
+  conflicted:
+    foreground: "#C5727A"
+  deleted:
+    foreground: "#BF616A"
+  modified:
+    foreground: "#81A1C1"
+  renamed:
+    foreground: "#EBCB8B"
+  new:
+    foreground: "#8FBCBB"
