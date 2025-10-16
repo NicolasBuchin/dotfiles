@@ -94,9 +94,9 @@
 
     "custom/arch": {
         "format": " ",
-        "on-click": "pkill waybar; rm $XDG_RUNTIME_DIR/waybar-mpris-covers/*; nohup waybar >/dev/null 2>&1 &",
+        // "on-click": "pkill waybar; rm $XDG_RUNTIME_DIR/waybar-mpris-covers/*; nohup waybar >/dev/null 2>&1 &",
         "tooltip": true,
-        "tooltip-format": "restart",
+        "tooltip-format": "btw",
         "on-scroll-up": "",
         "on-scroll-down": ""
     },

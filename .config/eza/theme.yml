@@ -6,6 +6,34 @@ filekinds:
   normal:
     foreground: "#C0C8D8"
 extensions:
+  tbi:
+    icon:
+      glyph: 
+  sti:
+    icon:
+      glyph: 
+  fa:
+    icon:
+      glyph: 
+  fasta:
+    icon:
+      glyph: 
+  fastq:
+    icon:
+      glyph: 
+  vcf:
+    icon:
+      glyph: 󱪚
+  sam:
+    icon:
+      glyph: 󰚄
+    filename:
+      foreground: "#B1C89D"
+  paf:
+    icon:
+      glyph: 
+    filename:
+      foreground: "#97B67C"
   epub:
     icon:
       glyph: 
@@ -922,8 +950,6 @@ extensions:
   cache:
     icon:
       glyph: 
-    filename:
-      foreground: "#ECEFF4"
   csh:
     icon:
       glyph: 
