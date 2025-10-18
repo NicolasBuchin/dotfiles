@@ -94,7 +94,7 @@
 
     "custom/arch": {
         "format": " ",
-        // "on-click": "pkill waybar; rm $XDG_RUNTIME_DIR/waybar-mpris-covers/*; nohup waybar >/dev/null 2>&1 &",
+        "on-click": "pkill waybar; rm $XDG_RUNTIME_DIR/waybar-mpris-covers/*; nohup waybar >/dev/null 2>&1 &",
         "tooltip": true,
         "tooltip-format": "btw",
         "on-scroll-up": "",
@@ -110,18 +110,14 @@
         "persistent-workspaces": {
             "*": 3
         },
-        "format-icons": {
-            "urgent": "",
-            "active": "",
-            "default": ""
-        },
         "on-scroll-up": "",
         "on-scroll-down": ""
     },
 
     "image#cover": {
-        "exec": "~/.config/waybar/cover.sh",
-        "interval": 1,
+        "exec": "python ~/.config/waybar/cover.py",
+        "interval": "once",
+        "signal": 5,
         "size": 18,
         "tooltip": false,
         "on-scroll-up": "",

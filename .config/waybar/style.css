@@ -17,8 +17,8 @@
 @define-color battery-charging #ffffff;
 
 /* Dynamic music colors - updated by cover.sh */
-@define-color music-bg transparent;
-@define-color music-hover rgba(170,160,120,0.5);
+@define-color music-bg rgba(188,121,45,1.000);
+@define-color music-hover rgba(44,36,36,1.000);
 
 /* ---- General ---- */
 * {
@@ -235,6 +235,7 @@ tooltip {
     transition: all 0.3s;
 }
 
+#clock:hover,
 #custom-swaync:hover {
     background: @pastel-yellow;
     border-radius: 5px;
@@ -246,7 +247,6 @@ tooltip {
 #memory:hover,
 #custom-gpu-usage:hover,
 #temperature:hover,
-#clock:hover,
 #pulseaudio:hover,
 #bluetooth:hover,
 #network:hover,

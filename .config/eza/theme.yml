@@ -6,6 +6,9 @@ filekinds:
   normal:
     foreground: "#C0C8D8"
 extensions:
+  colors:
+    icon:
+      glyph: 󰏘
   tbi:
     icon:
       glyph: 
@@ -2454,6 +2457,9 @@ links:
   normal:
     foreground: "#D8DEE9"
 filenames:
+  data:
+    icon:
+      glyph: 󰆼
   git:
     icon:
       glyph: 
