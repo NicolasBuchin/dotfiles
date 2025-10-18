@@ -1170,7 +1170,7 @@ extensions:
       foreground: "#5E81AC"
   gnumakefile:
     icon:
-      glyph: 
+      glyph: 
     filename:
       foreground: "#60728A"
   jpeg:
@@ -1565,7 +1565,7 @@ extensions:
       foreground: "#60728A"
   makefile:
     icon:
-      glyph: 
+      glyph: 
     filename:
       foreground: "#60728A"
   webm:
@@ -2813,7 +2813,7 @@ filenames:
       glyph: 
   gnumakefile:
     icon:
-      glyph: 
+      glyph: 
   index.theme:
     icon:
       glyph: 
@@ -2933,7 +2933,7 @@ filenames:
       glyph: 
   makefile:
     icon:
-      glyph: 
+      glyph: 
   .codespellrc:
     icon:
       glyph: 󰓆

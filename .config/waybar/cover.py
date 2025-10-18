@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Simple script to output the current cover path"""
-import os, sys
+import os
 from pathlib import Path
 
 XDG_RUNTIME_DIR = os.environ.get("XDG_RUNTIME_DIR")

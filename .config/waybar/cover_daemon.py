@@ -6,7 +6,7 @@ import modern_colorthief
 from PIL import Image
 import requests
 
-SQUARE_SIZE = 18
+SQUARE_SIZE = 32
 MAX_DOWNLOAD_SIZE = 1048576
 DOWNLOAD_TIMEOUT = 3
 CHUNK_SIZE = 8192
@@ -42,13 +42,10 @@ def update_css_variables(hover, bg):
     bg_css = bg or "transparent"
     if not STYLE_CSS.exists():
         return
-    
     with open(STYLE_CSS, "r", encoding="utf-8") as f:
         text = f.read()
-    
     new_text = re.sub(r"@define-color music-bg .*;", f"@define-color music-bg {bg_css};", text)
     new_text = re.sub(r"@define-color music-hover .*;", f"@define-color music-hover {hover_css};", new_text)
-    
     if new_text != text:
         with open(STYLE_CSS, "w", encoding="utf-8") as f:
             f.write(new_text)
@@ -58,21 +55,6 @@ def get_art_url():
 
 def hash_str(s):
     return hashlib.md5(s.encode()).hexdigest()
-
-def try_get_smaller_url(url):
-    if "i.scdn.co" in url:
-        url = re.sub(r'/\d+x\d+/', '/64x64/', url)
-        return url
-    if "googleusercontent.com" in url or "ytimg.com" in url:
-        if "=s" not in url:
-            url = f"{url}=s64"
-        else:
-            url = re.sub(r'=s\d+', '=s64', url)
-        return url
-    if "lastfm" in url:
-        url = re.sub(r'/\d+s/', '/64s/', url)
-        return url
-    return url
 
 def resize_square(img):
     w, h = img.size
@@ -85,9 +67,8 @@ def resize_square(img):
     top = (img.height - SQUARE_SIZE)//2
     return img.crop((left, top, left+SQUARE_SIZE, top+SQUARE_SIZE))
 
-def download_and_resize_direct(url, out_path):
+def download_and_resize(url, out_path):
     try:
-        url = try_get_smaller_url(url)
         response = requests.get(
             url,
             timeout=DOWNLOAD_TIMEOUT,
@@ -160,7 +141,7 @@ def get_palette_colors(path, color_file):
             return lines[0], lines[1]
     with open(path, "rb") as f:
         image_bytes = io.BytesIO(f.read())
-    palette = modern_colorthief.get_palette(image_bytes, 3)
+    palette = modern_colorthief.get_palette(image_bytes, 6)
     if not palette:
         palette = [(170,160,120)]
     while len(palette) < 3:
@@ -210,26 +191,21 @@ def handle_local_or_data(art, OUT_SQUARE):
         return False
     return None
 
-def process_cover():
-    """Process current cover and update cache"""
-    art = get_art_url()
+def process_cover(art):
     if not art:
         ensure_transparent_png()
         update_css_variables("transparent", "transparent")
         CURRENT_COVER.write_text(str(TRANSPARENT_PNG))
         return
-    
     key = hash_str(art)
     OUT_BASE = CACHE_DIR / key
     OUT_SQUARE = OUT_BASE.with_suffix(f".square.{SQUARE_SIZE}.png")
     color_file = OUT_BASE.with_suffix(".colors")
-    
     if OUT_SQUARE.exists():
         hover, bg = get_palette_colors(OUT_SQUARE, color_file)
         update_css_variables(hover, bg)
         CURRENT_COVER.write_text(str(OUT_SQUARE))
         return
-    
     res_local = handle_local_or_data(art, OUT_SQUARE)
     if res_local is True:
         hover, bg = get_palette_colors(OUT_SQUARE, color_file)
@@ -241,50 +217,44 @@ def process_cover():
         update_css_variables("transparent", "transparent")
         CURRENT_COVER.write_text(str(TRANSPARENT_PNG))
         return
-    
     if art.startswith("http"):
-        if download_and_resize_direct(art, OUT_SQUARE):
+        if download_and_resize(art, OUT_SQUARE):
             hover, bg = get_palette_colors(OUT_SQUARE, color_file)
             update_css_variables(hover, bg)
             CURRENT_COVER.write_text(str(OUT_SQUARE))
             return
-    
     ensure_transparent_png()
     update_css_variables("transparent", "transparent")
     CURRENT_COVER.write_text(str(TRANSPARENT_PNG))
 
 def signal_waybar():
-    """Send signal to waybar to refresh"""
     try:
-        subprocess.run(["pkill", "-RTMIN+5", "waybar"], 
-                      stderr=subprocess.DEVNULL, timeout=1)
+        subprocess.run(["pkill", "-RTMIN+5", "waybar"], stderr=subprocess.DEVNULL, timeout=1)
     except:
         pass
 
 def main():
-    # Write PID file
     PID_FILE.write_text(str(os.getpid()))
-    
-    # Initial process
-    process_cover()
+    art = get_art_url()
+    process_cover(art)
     signal_waybar()
-    
-    # Monitor playerctl for changes
     try:
         proc = subprocess.Popen(
-            ["playerctl", "metadata", "--follow", "--format", "{{mpris:artUrl}}"],
+            ["playerctl", "--follow", "metadata", "--format", "{{playerName}}|{{status}}|{{mpris:artUrl}}"],
             stdout=subprocess.PIPE,
             stderr=subprocess.DEVNULL,
             text=True,
             bufsize=1
         )
-        
-        last_art = None
+        last_art = art
         for line in proc.stdout:
-            art = line.strip()
-            if art != last_art:
-                last_art = art
-                process_cover()
+            parts = line.strip().split("|")
+            if len(parts) < 3:
+                continue
+            art_url = parts[2]
+            if art_url != last_art:
+                last_art = art_url
+                process_cover(art_url)
                 signal_waybar()
     except KeyboardInterrupt:
         pass
@@ -294,3 +264,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

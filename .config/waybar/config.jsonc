@@ -6,8 +6,8 @@
     "reload_style_on_change": true,
     
     "modules-left": [
-        "group/Utilities",
-        "group/workspaces",
+        "custom/arch",
+        "group/workspacesg",
         "group/music",
         "tray"
     ],
@@ -20,13 +20,7 @@
         "group/system"
     ],
 
-    "group/Utilities": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/arch"
-        ]
-    },
-    "group/workspaces": {
+    "group/workspacesg": {
         "orientation": "horizontal",
         "modules": [
             "custom/openbracket",
@@ -37,10 +31,10 @@
     "group/music": {
         "orientation": "horizontal",
         "modules": [
-            "custom/openbracket",
+            // "custom/openbracket",
             "image#cover",
-            "mpris",
-            "custom/closebracket"
+            "mpris"
+            // "custom/closebracket"
         ]
     },
     "group/hardware": {
@@ -94,7 +88,7 @@
 
     "custom/arch": {
         "format": " ",
-        "on-click": "pkill waybar; rm $XDG_RUNTIME_DIR/waybar-mpris-covers/*; nohup waybar >/dev/null 2>&1 &",
+        "on-click": "pkill waybar; ~/.config/waybar/refresh.sh; nohup waybar >/dev/null 2>&1 &",
         "tooltip": true,
         "tooltip-format": "btw",
         "on-scroll-up": "",
@@ -115,17 +109,17 @@
     },
 
     "image#cover": {
-        "exec": "python ~/.config/waybar/cover.py",
+        "exec": "~/.config/waybar/cover.py",
         "interval": "once",
         "signal": 5,
-        "size": 18,
+        "size": 30,
         "tooltip": false,
         "on-scroll-up": "",
         "on-scroll-down": ""
     },
 
     "mpris": {
-        "format": " {status_icon} | {dynamic} {player_icon} ",
+        "format": " {status_icon} | {dynamic} {player_icon}",
         "interval": 1,
         "dynamic-len": 50,
         "dynamic-order": ["title", "artist"],
