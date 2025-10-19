@@ -10,7 +10,7 @@ MAX_DOWNLOAD_SIZE = 1048576
 DOWNLOAD_TIMEOUT = 3
 CHUNK_SIZE = 8192
 CORNER_RADIUS = 6
-FADE_START = 0.6
+FADE_START = 0.7
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 STYLE_CSS = SCRIPT_DIR / "style.css"
@@ -80,7 +80,9 @@ def apply_right_fade(img):
         if x < half:
             a = 255
         else:
-            a = int(255 * (1.0 - (x - half) / denom))
+            t = (x - half) / denom
+            t = min(max(t, 0.0), 1.0)
+            a = int(255 * (1.0 - t**2 * (3 - 2*t)))  # smoothstep
             if a < 0:
                 a = 0
         cols.append(a)
@@ -289,14 +291,18 @@ def main():
             bufsize=1
         )
         last_art = art
+        last_line = ""
         for line in proc.stdout:
-            parts = line.strip().split("|")
-            if len(parts) < 3:
-                continue
-            art_url = parts[2]
-            if art_url != last_art:
-                last_art = art_url
-                process_cover(art_url)
+            line = line.strip()
+            if line != last_line:
+                last_line = line
+                parts = line.split("|")
+                if len(parts) < 3:
+                    continue
+                art_url = parts[2]
+                if art_url != last_art:
+                    last_art = art_url
+                    process_cover(art_url)
                 signal_waybar()
     except KeyboardInterrupt:
         pass
