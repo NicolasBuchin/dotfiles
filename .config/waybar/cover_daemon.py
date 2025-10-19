@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""Background daemon that monitors playerctl and updates cover/colors"""
 import os, io, re, hashlib, subprocess, base64, urllib.parse, sys, signal
 from pathlib import Path
 import modern_colorthief
 from PIL import Image
 import requests
 
-SQUARE_SIZE = 32
+SQUARE_SIZE = 64
 MAX_DOWNLOAD_SIZE = 1048576
 DOWNLOAD_TIMEOUT = 3
 CHUNK_SIZE = 8192
+CORNER_RADIUS = 6
+FADE_START = 0.6
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 STYLE_CSS = SCRIPT_DIR / "style.css"
@@ -67,7 +68,69 @@ def resize_square(img):
     top = (img.height - SQUARE_SIZE)//2
     return img.crop((left, top, left+SQUARE_SIZE, top+SQUARE_SIZE))
 
-def download_and_resize(url, out_path):
+def apply_right_fade(img):
+    img = img.convert("RGBA")
+    w, h = img.size
+    mask = Image.new("L", (w, h))
+    mw = w
+    half = mw * FADE_START
+    denom = (mw - half - 1) if (mw - half - 1) > 0 else 1
+    cols = []
+    for x in range(mw):
+        if x < half:
+            a = 255
+        else:
+            a = int(255 * (1.0 - (x - half) / denom))
+            if a < 0:
+                a = 0
+        cols.append(a)
+    mask_pixels = mask.load()
+    for x in range(mw):
+        col_val = cols[x]
+        for y in range(h):
+            mask_pixels[x, y] = col_val
+    img.putalpha(mask)
+    return img
+
+def apply_left_rounded_corners(img, radius=CORNER_RADIUS):
+    img = img.convert("RGBA")
+    w, h = img.size
+    pixels = img.load()
+    
+    # Round top-left corner
+    for y in range(min(radius, h)):
+        for x in range(min(radius, w)):
+            dx = radius - x
+            dy = radius - y
+            dist = (dx * dx + dy * dy) ** 0.5
+            if dist > radius:
+                r, g, b, a = pixels[x, y]
+                # Make pixel transparent
+                pixels[x, y] = (r, g, b, 0)
+    
+    # Round bottom-left corner
+    for y in range(max(0, h - radius), h):
+        for x in range(min(radius, w)):
+            dx = radius - x
+            dy = (y - (h - radius - 1))
+            dist = (dx * dx + dy * dy) ** 0.5
+            if dist > radius:
+                r, g, b, a = pixels[x, y]
+                # Make pixel transparent
+                pixels[x, y] = (r, g, b, 0)
+    
+    return img
+
+def save_square_variants(img, out_orig, out_faded):
+    if img.mode not in ('RGB', 'RGBA'):
+        img = img.convert('RGBA')
+    sq = resize_square(img)
+    sq.save(out_orig, 'PNG', optimize=True)
+    faded = apply_right_fade(sq.copy())
+    faded = apply_left_rounded_corners(faded)
+    faded.save(out_faded, 'PNG', optimize=True)
+
+def download_and_resize(url, out_orig, out_faded):
     try:
         response = requests.get(
             url,
@@ -81,58 +144,42 @@ def download_and_resize(url, out_path):
         for chunk in response.iter_content(CHUNK_SIZE):
             total += len(chunk)
             if total > MAX_DOWNLOAD_SIZE:
-                return None
+                return False
             img_data.write(chunk)
         img_data.seek(0)
         img = Image.open(img_data)
-        if img.mode not in ('RGB', 'RGBA'):
-            img = img.convert('RGBA')
-        img = resize_square(img)
-        img.save(out_path, 'PNG', optimize=True)
-        return out_path
+        save_square_variants(img, out_orig, out_faded)
+        return True
     except:
-        return None
+        return False
 
 def _average_border_color(path):
     try:
-        img = Image.open(path).convert("RGBA")
+        img = Image.open(path).convert("RGB")
     except:
         return None
     w, h = img.size
-    bw = max(1, min(w, h)//6)
     pixels = img.load()
-    total_r = total_g = total_b = total_a = 0
+    total_r = total_g = total_b = 0
     count = 0
-    for y in range(h):
-        for x in range(w):
-            if x < bw or x >= w-bw or y < bw or y >= h-bw:
-                r,g,b,a = pixels[x,y]
-                if a == 0:
-                    continue
-                total_r += r * a
-                total_g += g * a
-                total_b += b * a
-                total_a += a
-                count += 1
-    if total_a == 0 or count == 0:
-        img2 = img.convert("RGB")
-        pixels2 = img2.load()
-        total_r = total_g = total_b = 0
-        count = 0
+    layers = [0, 1]  # outer layer and one pixel inside
+    for layer in layers:
         for y in range(h):
             for x in range(w):
-                r,g,b = pixels2[x,y]
-                total_r += r
-                total_g += g
-                total_b += b
-                count += 1
-        if count == 0:
-            return (0,0,0)
-        return (int(total_r/count), int(total_g/count), int(total_b/count))
-    r = int(total_r/total_a)
-    g = int(total_g/total_a)
-    b = int(total_b/total_a)
-    return (r,g,b)
+                if x in (layer, w-1-layer) or y in (layer, h-1-layer):
+                    r, g, b = pixels[x, y]
+                    total_r += r
+                    total_g += g
+                    total_b += b
+                    count += 1
+    if count == 0:
+        return (0, 0, 0)
+    return (
+        int(total_r / count),
+        int(total_g / count),
+        int(total_b / count),
+    )
+
 
 def get_palette_colors(path, color_file):
     if color_file.exists():
@@ -154,24 +201,21 @@ def get_palette_colors(path, color_file):
     bg_idx = min(range(len(palette)), key=lambda i: dist2(avg, palette[i]))
     hover_idx = max(range(len(palette)), key=lambda i: dist2(palette[bg_idx], palette[i]))
     hover_rgb = palette[hover_idx]
-    bg_rgb = palette[bg_idx]
+    bg_rgb = avg
     def rgba(rgb, alpha=1.0): return f"rgba({rgb[0]},{rgb[1]},{rgb[2]},{alpha:.3f})"
     hover = rgba(hover_rgb, 1.0)
     bg = rgba(bg_rgb, 1.0)
     color_file.write_text(f"{hover}\n{bg}\n")
     return hover, bg
 
-def handle_local_or_data(art, OUT_SQUARE):
+def handle_local_or_data(art, OUT_ORIG, OUT_SQUARE):
     if art.startswith("data:"):
         if ";base64," in art:
             payload = art.split(",", 1)[1]
             img_data = io.BytesIO(base64.b64decode(payload))
             try:
                 img = Image.open(img_data)
-                if img.mode not in ('RGB', 'RGBA'):
-                    img = img.convert('RGBA')
-                img = resize_square(img)
-                img.save(OUT_SQUARE, 'PNG', optimize=True)
+                save_square_variants(img, OUT_ORIG, OUT_SQUARE)
                 return True
             except:
                 return False
@@ -181,10 +225,7 @@ def handle_local_or_data(art, OUT_SQUARE):
         if os.path.isfile(file):
             try:
                 img = Image.open(file)
-                if img.mode not in ('RGB', 'RGBA'):
-                    img = img.convert('RGBA')
-                img = resize_square(img)
-                img.save(OUT_SQUARE, 'PNG', optimize=True)
+                save_square_variants(img, OUT_ORIG, OUT_SQUARE)
                 return True
             except:
                 pass
@@ -199,16 +240,17 @@ def process_cover(art):
         return
     key = hash_str(art)
     OUT_BASE = CACHE_DIR / key
+    OUT_ORIG = OUT_BASE.with_suffix(f".square.{SQUARE_SIZE}.orig.png")
     OUT_SQUARE = OUT_BASE.with_suffix(f".square.{SQUARE_SIZE}.png")
     color_file = OUT_BASE.with_suffix(".colors")
-    if OUT_SQUARE.exists():
-        hover, bg = get_palette_colors(OUT_SQUARE, color_file)
+    if OUT_ORIG.exists() and OUT_SQUARE.exists():
+        hover, bg = get_palette_colors(OUT_ORIG, color_file)
         update_css_variables(hover, bg)
         CURRENT_COVER.write_text(str(OUT_SQUARE))
         return
-    res_local = handle_local_or_data(art, OUT_SQUARE)
+    res_local = handle_local_or_data(art, OUT_ORIG, OUT_SQUARE)
     if res_local is True:
-        hover, bg = get_palette_colors(OUT_SQUARE, color_file)
+        hover, bg = get_palette_colors(OUT_ORIG, color_file)
         update_css_variables(hover, bg)
         CURRENT_COVER.write_text(str(OUT_SQUARE))
         return
@@ -218,8 +260,8 @@ def process_cover(art):
         CURRENT_COVER.write_text(str(TRANSPARENT_PNG))
         return
     if art.startswith("http"):
-        if download_and_resize(art, OUT_SQUARE):
-            hover, bg = get_palette_colors(OUT_SQUARE, color_file)
+        if download_and_resize(art, OUT_ORIG, OUT_SQUARE):
+            hover, bg = get_palette_colors(OUT_ORIG, color_file)
             update_css_variables(hover, bg)
             CURRENT_COVER.write_text(str(OUT_SQUARE))
             return
@@ -264,4 +306,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

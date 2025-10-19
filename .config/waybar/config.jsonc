@@ -31,10 +31,8 @@
     "group/music": {
         "orientation": "horizontal",
         "modules": [
-            // "custom/openbracket",
             "image#cover",
             "mpris"
-            // "custom/closebracket"
         ]
     },
     "group/hardware": {
@@ -112,7 +110,7 @@
         "exec": "~/.config/waybar/cover.py",
         "interval": "once",
         "signal": 5,
-        "size": 30,
+        "size": 38,
         "tooltip": false,
         "on-scroll-up": "",
         "on-scroll-down": ""
