@@ -2457,6 +2457,9 @@ links:
   normal:
     foreground: "#D8DEE9"
 filenames:
+  plots:
+    icon:
+      glyph: 
   data:
     icon:
       glyph: 󰆼

@@ -46,3 +46,31 @@ vim.keymap.set("v", "C", '"_C', { noremap = true })
 vim.keymap.set("n", "y", '"+y', { noremap = true })
 vim.keymap.set("v", "y", '"+y', { noremap = true })
 vim.keymap.set("n", "Y", '"+Y', { noremap = true })
+
+-- Add semicolon at end of line(s) without moving cursor
+local function add_semicolon()
+	local mode = vim.api.nvim_get_mode().mode
+
+	if mode == "n" then
+		local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+		local line = vim.api.nvim_get_current_line()
+		if not line:match(";%s*$") then
+			vim.api.nvim_set_current_line(line .. ";")
+		end
+		vim.api.nvim_win_set_cursor(0, { row, col })
+		return
+	end
+
+	local start_row = vim.fn.getpos("'<")[2]
+	local end_row = vim.fn.getpos("'>")[2]
+
+	for row = start_row, end_row do
+		local line = vim.fn.getline(row)
+		if not line:match(";%s*$") then
+			vim.fn.setline(row, line .. ";")
+		end
+	end
+end
+
+vim.keymap.set("n", "<C-;>", add_semicolon, { noremap = true, silent = true })
+vim.keymap.set("v", "<C-;>", add_semicolon, { noremap = true, silent = true })

@@ -19,10 +19,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export EZA_CONFIG_DIR="$HOME/.config/eza/"
 export EZA_COLORS="unset"
 
-alias ls='eza --color=always -lh --time-style=long-iso --git --group --sort=type --sort=name --icons --group-directories-first'
-alias la='unbuffer eza --color=always -lah --time-style=long-iso --git --group --sort=type --sort=name --icons --group-directories-first'
+alias ls='eza --color=always -lh --time-style=long-iso --git --sort=type --sort=name --icons --group-directories-first'
+alias la='unbuffer eza --color=always -lah --time-style=long-iso --git --sort=type --sort=name --icons --group-directories-first'
 
 alias venv='source .venv/bin/activate'
+alias venv2='source .venv2/bin/activate'
 
 eval "$(ssh-agent -s)" > /dev/null
 
@@ -73,3 +74,5 @@ if [[ -z $DISPLAY ]] then
 	Hyprland
 fi
 
+
+. "$HOME/.local/bin/env"

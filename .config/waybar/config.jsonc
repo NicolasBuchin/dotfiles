@@ -192,7 +192,7 @@
 
     "bluetooth": {
         "format": "󰂯",           
-        "format-disabled": "󰂲",
+        "format-off": "󰂲",
         "interval": 10,
         "tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_battery_percentage}%",
@@ -263,8 +263,14 @@
 
     "clock": {
         "format": "{:%H:%M}  ",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}  "
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "format": {
+                "today": "<span color='#E5C746'>{}</span>"
+                }
+        },
+        // "format-alt": "{:%Y-%m-%d}  ",
+        "on-click": "morgen"
     },
 
     "custom/swaync": {

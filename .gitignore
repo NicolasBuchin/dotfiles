@@ -3,3 +3,5 @@
 *.swp
 *.swo
 *.pyc
+.config/nvim/conf_dump.txt
+.config/nvim/love-api/

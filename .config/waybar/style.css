@@ -17,8 +17,8 @@
 @define-color battery-charging #ffffff;
 
 /* Dynamic music colors - updated by cover.sh */
-@define-color music-bg rgba(89,114,205,1.000);
-@define-color music-hover rgba(26,34,66,1.000);
+@define-color music-bg rgba(63,81,84,1.000);
+@define-color music-hover rgba(197,213,208,1.000);
 
 /* ---- General ---- */
 * {
@@ -41,6 +41,10 @@ tooltip {
     border: 2px solid @dim;
     border-radius: 5px;
     padding: 5px;
+}
+
+tooltip calendar:selected {
+    color: #000;
 }
 
 /* ---- Modules ---- */
