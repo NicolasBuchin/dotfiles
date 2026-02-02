@@ -27,37 +27,37 @@ lsp.clangd.setup({
 })
 
 local function make_lua_library_with_love()
-  local runtime_files = vim.api.nvim_get_runtime_file("", true) or {}
+	local runtime_files = vim.api.nvim_get_runtime_file("", true) or {}
 
-  local love_api_path = vim.fn.stdpath("data") .. "/love-api"
+	local love_api_path = vim.fn.stdpath("data") .. "/love-api"
 
-  local library = {}
-  for _, p in ipairs(runtime_files) do
-    library[p] = true
-  end
-  if vim.fn.isdirectory(love_api_path) == 1 then
-    library[love_api_path] = true
-  else
-    library[love_api_path] = true
-  end
+	local library = {}
+	for _, p in ipairs(runtime_files) do
+		library[p] = true
+	end
+	if vim.fn.isdirectory(love_api_path) == 1 then
+		library[love_api_path] = true
+	else
+		library[love_api_path] = true
+	end
 
-  return library
+	return library
 end
 
 lsp.lua_ls.setup({
-  settings = {
-    Lua = {
-      runtime = { version = "LuaJIT" },
-      diagnostics = {
-        globals = { "vim", "love" }, 
-      },
-      workspace = {
-        library = make_lua_library_with_love(),
-        checkThirdParty = false,
-      },
-      telemetry = { enable = false },
-    },
-  },
+	settings = {
+		Lua = {
+			runtime = { version = "LuaJIT" },
+			diagnostics = {
+				globals = { "vim", "love" },
+			},
+			workspace = {
+				library = make_lua_library_with_love(),
+				checkThirdParty = false,
+			},
+			telemetry = { enable = false },
+		},
+	},
 })
 
 -- Rust LSP Setup via rust-tools
@@ -90,14 +90,12 @@ require("rust-tools").setup({
 	},
 })
 
--- ALE Setup (Linting/Formatting)
-vim.g.ale_fixers = {
-	python = { "autopep8" },
-	rust = { "rustfmt" },
-	-- c = { "clang-format" },
-	-- cpp = { "clang-format" },
-	lua = { "stylua" },
-}
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.rs",
+	callback = function()
+		vim.lsp.buf.format({ async = false })
+	end,
+})
 
 vim.g.ale_linters = {
 	python = { "flake8" },
@@ -105,7 +103,6 @@ vim.g.ale_linters = {
 	c = { "clang" },
 	cpp = { "clang" },
 }
-vim.g.ale_fix_on_save = 1
 
 -- nvim-autopairs Setup
 require("nvim-autopairs").setup({
