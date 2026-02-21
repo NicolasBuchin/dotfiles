@@ -1,6 +1,5 @@
 local lsp = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Python
@@ -15,6 +14,7 @@ lsp.pyright.setup({
     },
 })
 
+-- Diagnostics
 vim.diagnostic.config({
     virtual_text = true,
     signs = true,
@@ -23,6 +23,7 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
+-- C / C++
 lsp.clangd.setup({
     capabilities = capabilities,
     cmd = { "clangd", "--compile-commands-dir=build" },
@@ -30,24 +31,7 @@ lsp.clangd.setup({
     root_dir = lsp.util.root_pattern("compile_commands.json", ".git"),
 })
 
-local function make_lua_library_with_love()
-    local runtime_files = vim.api.nvim_get_runtime_file("", true) or {}
-
-    local love_api_path = vim.fn.stdpath("data") .. "/love-api"
-
-    local library = {}
-    for _, p in ipairs(runtime_files) do
-        library[p] = true
-    end
-    if vim.fn.isdirectory(love_api_path) == 1 then
-        library[love_api_path] = true
-    else
-        library[love_api_path] = true
-    end
-
-    return library
-end
-
+-- Lua
 lsp.lua_ls.setup({
     capabilities = capabilities,
     settings = {
@@ -60,9 +44,8 @@ lsp.lua_ls.setup({
                 },
             },
             runtime = { version = "LuaJIT" },
-            diagnostics = { globals = { "vim", "love" } },
+            diagnostics = { globals = { "vim" } },
             workspace = {
-                library = make_lua_library_with_love(),
                 checkThirdParty = false,
             },
             telemetry = { enable = false },
@@ -70,18 +53,10 @@ lsp.lua_ls.setup({
     },
 })
 
--- Rust LSP Setup via rust-tools
+-- Rust
 require("rust-tools").setup({
     server = {
         on_attach = function(_, bufnr)
-            local cmp = require("cmp")
-            cmp.setup.buffer({
-                sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
-                    { name = "luasnip" },
-                }),
-            })
-
             local rt = require("rust-tools")
             vim.keymap.set("n", "<S-t>", rt.hover_actions.hover_actions, { buffer = bufnr })
         end,
@@ -100,6 +75,15 @@ require("rust-tools").setup({
     },
 })
 
+-- ALE Linters
+vim.g.ale_linters = {
+    python = { "flake8" },
+    rust = { "cargo" },
+    c = { "clang" },
+    cpp = { "clang" },
+}
+
+-- Format on Save
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.rs",
     callback = function()
@@ -112,71 +96,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         vim.lsp.buf.format({ async = false })
     end,
 })
-
-vim.g.ale_linters = {
-    python = { "flake8" },
-    rust = { "cargo" },
-    c = { "clang" },
-    cpp = { "clang" },
-}
-
--- nvim-autopairs Setup
-require("nvim-autopairs").setup({
-    check_ts = true,
-})
-
--- Autopairs Integration with nvim-cmp
-local cmp = require("cmp")
-local luasnip = require("luasnip")
-
-cmp.setup({
-    experimental = {
-        ghost_text = true, -- <<< THIS enables inline gray suggestion
-    },
-
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
-
-    mapping = cmp.mapping.preset.insert({
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
-
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-    }),
-
-    sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
-    }),
-})
-cmp.event:on(
-    "confirm_done",
-    require("nvim-autopairs.completion.cmp").on_confirm_done()
-)
-
--- LuaSnip Lazy Load VSCode-Style Snippets
-require("luasnip.loaders.from_vscode").lazy_load()

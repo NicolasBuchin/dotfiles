@@ -71,7 +71,6 @@ local function add_semicolon()
         end
     end
 end
-
 vim.keymap.set("n", "<C-;>", add_semicolon, { noremap = true, silent = true })
 vim.keymap.set("v", "<C-;>", add_semicolon, { noremap = true, silent = true })
 

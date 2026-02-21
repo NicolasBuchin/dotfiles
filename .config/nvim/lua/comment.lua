@@ -1,7 +1,7 @@
 -- Setup for Comment.nvim plugin with custom keybindings
 require("Comment").setup({
     padding = true, -- Adds a space between comment and line
-    sticky = true, -- Cursor stays in place after commenting
+    sticky = true,  -- Cursor stays in place after commenting
     mappings = {
         basic = true,
         extra = true,
