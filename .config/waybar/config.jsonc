@@ -269,8 +269,8 @@
                 "today": "<span color='#E5C746'>{}</span>"
                 }
         },
-        // "format-alt": "{:%Y-%m-%d}  ",
-        "on-click": "morgen"
+        "format-alt": "{:%Y-%m-%d}  ",
+        // "on-click": "morgen"
     },
 
     "custom/swaync": {
