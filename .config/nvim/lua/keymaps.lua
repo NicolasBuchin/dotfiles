@@ -76,3 +76,21 @@ vim.keymap.set("v", "<C-;>", add_semicolon, { noremap = true, silent = true })
 
 -- Telescope
 vim.keymap.set("n", "<C-l>", "<cmd>Telescope live_grep<CR>", { desc = "Live grep" })
+
+-- code action
+vim.keymap.set("n", "<C-i>", vim.lsp.buf.code_action)
+
+-- git
+require('gitsigns').setup({
+    on_attach = function(bufnr)
+        local gs = package.loaded.gitsigns
+
+        local function map(mode, lhs, rhs, desc)
+            vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+        end
+
+        -- Move between hunks
+        map('n', '<C-j>', gs.next_hunk, 'Next Git Hunk')
+        map('n', '<C-h>', gs.prev_hunk, 'Previous Git Hunk')
+    end
+})

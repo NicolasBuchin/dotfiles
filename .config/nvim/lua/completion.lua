@@ -8,14 +8,19 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 
 cmp.setup({
-    experimental = {
-        ghost_text = true,
-    },
+    -- experimental = {
+    --     ghost_text = true,
+    -- },
 
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
         end,
+    },
+
+    preselect = cmp.PreselectMode.Item,
+    completion = {
+        completeopt = "menu,menuone,noinsert",
     },
 
     mapping = cmp.mapping.preset.insert({

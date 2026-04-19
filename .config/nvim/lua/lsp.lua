@@ -70,11 +70,25 @@ require("rust-tools").setup({
                     parameterHints = { enable = false },
                     chainingHints = { enable = false },
                 },
+
+                hover = {
+                    memoryLayout = {
+                        enable = true,
+                        size = "both",
+                        offset = "decimal",
+                        alignment = "decimal",
+                        niches = true,
+                        -- padding = nil      -- omit or set format if you want padding displayed
+                    },
+                },
+                -- <<< end added block >>>
             },
+        },
+        cmd_env = {
+            RUSTUP_TOOLCHAIN = "nightly",
         },
     },
 })
-
 -- ALE Linters
 vim.g.ale_linters = {
     python = { "flake8" },

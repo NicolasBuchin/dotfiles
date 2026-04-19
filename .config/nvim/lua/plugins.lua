@@ -43,10 +43,7 @@ require("lazy").setup({
     { "numToStr/Comment.nvim" },
     { "windwp/nvim-autopairs" },
 
-    {
-        "nvim-tree/nvim-web-devicons",
-        lazy = true,
-    },
+    { "nvim-tree/nvim-web-devicons" },
     {
         "saecki/crates.nvim",
         tag = "stable",
