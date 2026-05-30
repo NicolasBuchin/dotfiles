@@ -10,11 +10,11 @@ export MOZ_ENABLE_WAYLAND=1
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export ELECTRON_ENABLE_LOGGING=1
 export python_cmd="python3.11"
-export WINEPREFIX=".wine"
 
 export VISUAL=nvim
 export EDITOR=nvim
 
+export PATH=$HOME/smrtlink/smrtcmds/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export EZA_CONFIG_DIR="$HOME/.config/eza/"
