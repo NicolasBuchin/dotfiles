@@ -5,3 +5,4 @@ require("lsp")        -- LSP servers and diagnostics
 require("completion") -- Completion and snippets
 require("keymaps")    -- Keybindings
 require("comment")    -- Commenting
+require("format")     -- Formatting

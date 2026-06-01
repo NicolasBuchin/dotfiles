@@ -2,45 +2,49 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "padding": { "top": 1, "left": 2 },
-    "color": { "1": "yellow", "2": "yellow" }
+    "color": { "1": "yellow", "2": "yellow" },
   },
   "display": {
     "separator": "  ",
+    "key": {
+      "width": 12,
+    },
     "color": {
       "keys": "bright_white",
       "title": "bright_white",
       "separator": "dim_white",
-      "output": "dim_white" 
-    }
+      "output": "dim_white",
+    },
   },
   "modules": [
     {
       "type": "custom",
-      "format": "{#separator}╭─────────────────────────── System Info ───────────────────────────╮{#}"
+      "format": "{#separator}╭────────────────────────── System Info ──────────────────────────╮{#}",
     },
     {
       "type": "title",
-      "format": "{#separator}│ {#}{#title}{user-name-colored}{#}{#separator}@{#}{#title}{host-name}{#}"
+      "format": "{#separator}│ {#}{#title}{user-name-colored}{#}{#separator}@{#}{#title}{host-name}{#}",
     },
     {
       "type": "custom",
-      "format": "{#separator}├───────────────────────────────────────────────────────────────────┤{#}"
+      "format": "{#separator}├─────────────────────────────────────────────────────────────────┤{#}",
     },
     {
       "type": "custom",
-      "format": "{#separator}│ {#}{#title}System Information{#}"
+      "format": "{#separator}│ {#}{#title}System Information{#}",
     },
     {
       "type": "os",
-      "key": "{#separator}│ {#}{#keys}OS{#}"
+      "key": "{#separator}│ {#}{#keys}OS{#}",
     },
     {
       "type": "host",
-      "key": "{#separator}│ {#}{#keys}Host{#}"
+      "key": "{#separator}│ {#}{#keys}Host{#}",
+      "format": "{version}",
     },
     {
       "type": "kernel",
-      "key": "{#separator}│ {#}{#keys}Kernel{#}"
+      "key": "{#separator}│ {#}{#keys}Kernel{#}",
     },
     // {
     //   "type": "uptime",
@@ -53,85 +57,94 @@
     // },
     {
       "type": "custom",
-      "format": "{#separator}│{#}"
+      "format": "{#separator}│{#}",
     },
     {
       "type": "custom",
-      "format": "{#separator}│ {#}{#title}Graphical / UI{#}"
+      "format": "{#separator}│ {#}{#title}Graphical / UI{#}",
     },
     {
       "type": "de",
-      "key": "{#separator}│ {#}{#keys}DE{#}"
+      "key": "{#separator}│ {#}{#keys}DE{#}",
     },
     {
       "type": "wm",
-      "key": "{#separator}│ {#}{#keys}WM{#}"
+      "key": "{#separator}│ {#}{#keys}WM{#}",
+      "format": "{pretty-name} {version}",
     },
     {
       "type": "display",
-      "key": "{#separator}│ {#}{#keys}Display{#}"
+      "key": "{#separator}│ {#}{#keys}Display{#}",
+      "format": "{width}x{height}@{refresh-rate}Hz {inch}\" [{type}]",
     },
     {
       "type": "terminal",
-      "key": "{#separator}│ {#}{#keys}Terminal{#}"
+      "key": "{#separator}│ {#}{#keys}Terminal{#}",
+      "format": "{pretty-name} {version}",
     },
     {
       "type": "editor",
-      "key": "{#separator}│ {#}{#keys}Editor{#}"
+      "key": "{#separator}│ {#}{#keys}Editor{#}",
+      "format": "{name} {version}",
     },
     {
       "type": "custom",
-      "format": "{#separator}│{#}"
+      "format": "{#separator}│{#}",
     },
     {
       "type": "custom",
-      "format": "{#separator}│ {#}{#title}Hardware{#}"
+      "format": "{#separator}│ {#}{#title}Hardware{#}",
     },
     {
       "type": "cpu",
-      "key": "{#separator}│ {#}{#keys}CPU{#}"
+      "key": "{#separator}│ {#}{#keys}CPU{#}",
+      "format": "{name} ({cores-online}) {freq-max}",
     },
     {
       "type": "gpu",
-      "key": "{#separator}│ {#}{#keys}GPU{#}"
+      "key": "{#separator}│ {#}{#keys}GPU{#}",
+      "format": "{vendor} {name} [{type}]",
     },
     {
       "type": "memory",
-      "key": "{#separator}│ {#}{#keys}Memory{#}"
+      "key": "{#separator}│ {#}{#keys}Memory{#}",
+      "format": "{used} / {total} ({percentage})",
     },
     {
       "type": "swap",
-      "key": "{#separator}│ {#}{#keys}Swap{#}"
+      "key": "{#separator}│ {#}{#keys}Swap{#}",
+      "format": "{used} / {total} ({percentage})",
     },
     {
       "type": "disk",
-      "key": "{#separator}│ {#}{#keys}Disk{#}"
+      "key": "{#separator}│ {#}{#keys}Disk{#}",
+      "format": "{size-used} / {size-total} ({size-percentage})",
     },
     {
       "type": "custom",
-      "format": "{#separator}│{#}"
+      "format": "{#separator}│{#}",
     },
     {
       "type": "battery",
-      "key": "{#separator}│ {#}{#keys}Battery{#}"
+      "key": "{#separator}│ {#}{#keys}Battery{#}",
+      "format": "{capacity} [{status}]",
     },
     {
       "type": "poweradapter",
-      "key": "{#separator}│ {#}{#keys}Adapter{#}"
+      "key": "{#separator}│ {#}{#keys}Adapter{#}",
     },
     {
       "type": "custom",
-      "format": "{#separator}│{#}"
+      "format": "{#separator}│{#}",
     },
     {
       "type": "colors",
       "key": "{#separator}│ {#}{#keys}Colors{#}",
-      "symbol": "circle"
+      "symbol": "circle",
     },
     {
       "type": "custom",
-      "format": "{#separator}╰───────────────────────────────────────────────────────────────────╯{#}"
-    }
-  ]
+      "format": "{#separator}╰─────────────────────────────────────────────────────────────────╯{#}",
+    },
+  ],
 }
-
