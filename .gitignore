@@ -5,3 +5,5 @@
 *.pyc
 .config/nvim/conf_dump.txt
 .config/nvim/love-api/
+.config/nvim/lazy-lock.json
+.config/gtk-3.0/bookmarks

@@ -25,18 +25,6 @@ vim.cmd([[
   hi FloatBorder guibg=NONE ctermbg=NONE
 ]])
 
--- Treesitter Configuration
-require("nvim-treesitter.configs").setup({
-    ensure_installed = { "lua", "python", "javascript", "rust", "c", "cpp" },
-    sync_install = false,
-    ignore_install = {},
-    auto_install = true,
-    highlight = {
-        enable = true,
-    },
-    modules = {},
-})
-
 -- Telescope Setup
 require("telescope").setup({})
 

@@ -2,10 +2,7 @@
 require("Comment").setup({
     padding = true, -- Adds a space between comment and line
     sticky = true,  -- Cursor stays in place after commenting
-    mappings = {
-        basic = true,
-        extra = true,
-    },
+    mappings = false,
     toggler = {
         line = '<C-k>', -- Toggle comment on current line
     },

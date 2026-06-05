@@ -5,8 +5,12 @@ vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
 vim.keymap.set("n", "<C-p>", ":Telescope find_files<CR>")
 
 -- Comment/Uncomment
-vim.keymap.set("n", "<C-k>", ":lua require('Comment.api').toggle.linewise.current()<CR>")
-vim.keymap.set("v", "<C-k>", ":lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", { silent = true })
+local comment_api = require("Comment.api")
+vim.keymap.set("x", "<C-k>", function()
+    local esc = vim.api.nvim_replace_termcodes("<ESC>", true, false, true)
+    vim.api.nvim_feedkeys(esc, "nx", false)
+    comment_api.toggle.linewise(vim.fn.visualmode())
+end, { noremap = true, silent = true })
 
 -- Indentation (Normal Mode)
 vim.keymap.set("n", "<C-Tab>", ">>", { noremap = true, silent = true, desc = "Indent line" })

@@ -13,17 +13,34 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     -- UI / Theme
-    { "AlexvZyl/nordic.nvim",            lazy = false,                              priority = 1000 },
+    { "AlexvZyl/nordic.nvim",          lazy = false,                              priority = 1000 },
 
     -- Syntax Highlighting
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        branch = "main",
+        lazy = false,
+        build = ":TSUpdate",
+        config = function()
+            -- Enable highlighting and indentation for all filetypes
+            vim.api.nvim_create_autocmd("FileType", {
+                callback = function()
+                    pcall(vim.treesitter.start)
+                    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+                end,
+            })
+            -- Install parsers (new API, no ensure_installed option)
+            local ts = require("nvim-treesitter")
+            ts.install({ "lua", "python", "javascript", "rust", "c", "cpp" })
+        end,
+    },
 
     -- File Explorer / Finder
     { "nvim-tree/nvim-tree.lua" },
-    { "nvim-telescope/telescope.nvim",   dependencies = { "nvim-lua/plenary.nvim" } },
+    { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
     -- LSP / Completion
-    { "neovim/nvim-lspconfig",           version = "v0.1.7" },
+    { "neovim/nvim-lspconfig",         version = "v0.1.7" },
 
     { "hrsh7th/nvim-cmp" },
     { "hrsh7th/cmp-nvim-lsp" },

@@ -14,7 +14,6 @@ export python_cmd="python3.11"
 export VISUAL=nvim
 export EDITOR=nvim
 
-export PATH=$HOME/smrtlink/smrtcmds/bin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export EZA_CONFIG_DIR="$HOME/.config/eza/"
