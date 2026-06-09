@@ -23,7 +23,6 @@ alias ls='eza --color=always -lh --time-style=long-iso --git --sort=type --sort=
 alias la='unbuffer eza --color=always -lah --time-style=long-iso --git --sort=type --sort=name --icons --group-directories-first'
 
 alias venv='source .venv/bin/activate'
-alias venv2='source .venv2/bin/activate'
 
 eval "$(ssh-agent -s)" > /dev/null
 

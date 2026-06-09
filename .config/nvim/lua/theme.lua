@@ -40,6 +40,7 @@ vim.cmd([[
 
 -- Gitsigns Setup
 require("gitsigns").setup({
+    debug_mode = true,
     signs = {
         add = { text = "+" },
         change = { text = "~" },

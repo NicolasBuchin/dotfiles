@@ -31,7 +31,15 @@ require("lazy").setup({
             })
             -- Install parsers (new API, no ensure_installed option)
             local ts = require("nvim-treesitter")
-            ts.install({ "lua", "python", "javascript", "rust", "c", "cpp" })
+            ts.install({
+                "lua",
+                "python",
+                "javascript",
+                "rust",
+                "c",
+                "cpp",
+                "snakemake",
+            })
         end,
     },
 
@@ -53,12 +61,11 @@ require("lazy").setup({
     { "simrat39/rust-tools.nvim" },
 
     -- Debugging / Linting / Formatting
-    { "mfussenegger/nvim-dap" },
     { "dense-analysis/ale" },
 
     -- Misc
-    { "numToStr/Comment.nvim" },
     { "windwp/nvim-autopairs" },
+    { "numToStr/Comment.nvim" },
 
     { "nvim-tree/nvim-web-devicons" },
     {
