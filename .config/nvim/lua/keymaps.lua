@@ -29,7 +29,6 @@ vim.keymap.set("n", "D", '"_D', { noremap = true })
 vim.keymap.set("v", "D", '"_D', { noremap = true })
 
 -- Preserve register when pasting over a visual selection
--- Delete selection to the black hole register then put the default register
 vim.keymap.set({ "v", "x" }, "p", '"_dP', { noremap = true, silent = true })
 vim.keymap.set({ "v", "x" }, "P", '"_dP', { noremap = true, silent = true })
 
@@ -39,73 +38,40 @@ vim.keymap.set("v", "c", '"_c', { noremap = true })
 vim.keymap.set("n", "C", '"_C', { noremap = true })
 vim.keymap.set("v", "C", '"_C', { noremap = true })
 
--- x and X already covered in your config:
--- vim.keymap.set("n", "x", '"_x', { noremap = true })
--- vim.keymap.set("n", "X", '"_X', { noremap = true })
-
--- Yank still copies to system clipboard
+-- Yank copies to system clipboard
 vim.keymap.set("n", "y", '"+y', { noremap = true })
 vim.keymap.set("v", "y", '"+y', { noremap = true })
 vim.keymap.set("n", "Y", '"+Y', { noremap = true })
 
--- Add semicolon at end of line(s) without moving cursor
-local function add_semicolon()
-    local mode = vim.api.nvim_get_mode().mode
+-- Append a character at the end of the line(s)
+local function append_at_eol(char)
+    local pattern = vim.pesc(char) .. "%s*$"
 
-    if mode == "n" then
-        local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-        local line = vim.api.nvim_get_current_line()
-        if not line:match(";%s*$") then
-            vim.api.nvim_set_current_line(line .. ";")
-        end
-        vim.api.nvim_win_set_cursor(0, { row, col })
-        return
-    end
-
-    local start_row = vim.fn.getpos("'<")[2]
-    local end_row = vim.fn.getpos("'>")[2]
-
-    for row = start_row, end_row do
+    local function append(row)
         local line = vim.fn.getline(row)
-        if not line:match(";%s*$") then
-            vim.fn.setline(row, line .. ";")
+        if not line:match(pattern) then
+            vim.fn.setline(row, line .. char)
         end
     end
-end
-vim.keymap.set("n", "<C-;>", add_semicolon, { noremap = true, silent = true })
-vim.keymap.set("v", "<C-;>", add_semicolon, { noremap = true, silent = true })
 
-local function add_comma()
-    local mode = vim.api.nvim_get_mode().mode
-
-    if mode == "n" then
-        local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-        local line = vim.api.nvim_get_current_line()
-
-        if not line:match(",%s*$") then
-            vim.api.nvim_set_current_line(line .. ",")
+    return function()
+        if vim.api.nvim_get_mode().mode == "n" then
+            local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+            append(row)
+            vim.api.nvim_win_set_cursor(0, { row, col })
+            return
         end
 
-        vim.api.nvim_win_set_cursor(0, { row, col })
-        return
-    end
-
-    local start_row = vim.fn.getpos("'<")[2]
-    local end_row = vim.fn.getpos("'>")[2]
-
-    for row = start_row, end_row do
-        local line = vim.fn.getline(row)
-        if not line:match(",%s*$") then
-            vim.fn.setline(row, line .. ",")
+        for row = vim.fn.getpos("'<")[2], vim.fn.getpos("'>")[2] do
+            append(row)
         end
     end
 end
 
-vim.keymap.set({ "n", "v" }, "<C-,>", add_comma, {
-    noremap = true,
-    silent = true,
-    desc = "Add comma at end of line",
-})
+vim.keymap.set({ "n", "v" }, "<C-;>", append_at_eol(";"),
+    { noremap = true, silent = true, desc = "Add semicolon at end of line" })
+vim.keymap.set({ "n", "v" }, "<C-,>", append_at_eol(","),
+    { noremap = true, silent = true, desc = "Add comma at end of line" })
 
 -- Telescope
 vim.keymap.set("n", "<C-l>", "<cmd>Telescope live_grep<CR>", { desc = "Live grep" })
@@ -127,3 +93,9 @@ require('gitsigns').setup({
         map('n', '<C-h>', gs.prev_hunk, 'Previous Git Hunk')
     end
 })
+
+
+vim.keymap.set("n", "<C-S-a>", function()
+    local gitsigns = require("gitsigns")
+    gitsigns.stage_hunk()
+end, { desc = "Stage/unstage Git hunk" })

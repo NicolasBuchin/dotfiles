@@ -29,7 +29,7 @@ require("lazy").setup({
                     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
                 end,
             })
-            -- Install parsers (new API, no ensure_installed option)
+            -- Install parsers
             local ts = require("nvim-treesitter")
             ts.install({
                 "lua",

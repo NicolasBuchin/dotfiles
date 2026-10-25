@@ -75,3 +75,7 @@ fi
 
 
 . "$HOME/.local/bin/env"
+
+# mail/calendar helpers
+export PATH="$HOME/pim/bin:$PATH"
+export MBSYNCRC="$HOME/.config/isync/mbsyncrc"

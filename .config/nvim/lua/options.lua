@@ -4,7 +4,7 @@ vim.opt.relativenumber = true                  -- Show relative line numbers
 vim.opt.termguicolors = true                   -- Enable 24-bit RGB colors
 vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]]) -- Transparent background
 
--- Tab/Indentation Settings (4 spaces)
+-- Tab/Indentation Settings
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4

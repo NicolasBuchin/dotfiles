@@ -78,10 +78,9 @@ require("rust-tools").setup({
                         offset = "decimal",
                         alignment = "decimal",
                         niches = true,
-                        -- padding = nil      -- omit or set format if you want padding displayed
+                        -- padding = nil
                     },
                 },
-                -- <<< end added block >>>
             },
         },
         cmd_env = {

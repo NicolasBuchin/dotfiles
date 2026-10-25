@@ -33,3 +33,8 @@ regex = "[^ ]+\\.rs:\\d+:\\d+"
 [env]
 TERM = "xterm-256color"
 
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"

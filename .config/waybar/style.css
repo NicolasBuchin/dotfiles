@@ -17,8 +17,8 @@
 @define-color battery-charging #ffffff;
 
 /* Dynamic music colors - updated by cover.sh */
-@define-color music-bg rgba(149,149,149,1.000);
-@define-color music-hover rgba(52,50,50,1.000);
+@define-color music-bg rgba(45,77,93,1.000);
+@define-color music-hover rgba(99,140,160,1.000);
 
 /* ---- General ---- */
 * {
@@ -298,3 +298,35 @@ tooltip calendar:selected {
     color: @foreground;
 }
 
+
+#custom-mail {
+    transition: color 0.3s;
+}
+
+#custom-mail.unread {
+    color: @battery-warning;
+}
+
+#custom-mail:hover {
+    background: @pastel-green;
+    border-radius: 5px;
+    color: @foreground;
+}
+
+#custom-agenda {
+    transition: color 0.3s;
+}
+
+#custom-agenda.soon {
+    color: @battery-warning;
+}
+
+#custom-agenda.empty {
+    color: @dim;
+}
+
+#custom-agenda:hover {
+    background: @pastel-green;
+    border-radius: 5px;
+    color: @foreground;
+}
