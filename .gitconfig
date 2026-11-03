@@ -1,0 +1,14 @@
+[core]
+	pager = cat
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = nicolas.buchin@math.su.se
+	name = NicolasBuchin
+[pager]
+	show = cat
+	log = less

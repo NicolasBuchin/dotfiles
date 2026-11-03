@@ -14,6 +14,10 @@ fi
 # Items to collect (edit this list if you want to add/remove)
 items=(
   "$HOME/.bashrc"
+  "$HOME/.bash_profile"
+  "$HOME/.profile"
+  "$HOME/.gitconfig"
+  "$HOME/.gtkrc-2.0"
   "$HOME/.config/hypr"
   "$HOME/.config/waybar"
   "$HOME/.config/alacritty"
@@ -23,6 +27,8 @@ items=(
   "$HOME/.config/eza"
   "$HOME/.config/gtk-3.0"
   "$HOME/.config/swaync"
+  "$HOME/.config/git"
+  "$HOME/.config/htop"
 )
 
 # helper to run or echo

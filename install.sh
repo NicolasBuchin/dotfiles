@@ -21,14 +21,21 @@ fi
 # items to restore (mirror collect_dotfiles.sh)
 items=(
   ".bashrc"
+  ".bash_profile"
+  ".profile"
+  ".gitconfig"
+  ".gtkrc-2.0"
   ".config/hypr"
   ".config/waybar"
   ".config/alacritty"
   ".config/nvim"
   ".config/fastfetch"
   ".config/nemo"
+  ".config/eza"
   ".config/gtk-3.0"
   ".config/swaync"
+  ".config/git"
+  ".config/htop"
 )
 
 # choose copy method

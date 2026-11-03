@@ -50,6 +50,8 @@
       "network",
       "battery",
       "custom/split",
+      "custom/fx",
+      "custom/split",
       "custom/agenda",
       "custom/mail",
       "custom/swaync",
@@ -263,6 +265,18 @@
     },
     "format-alt": "{:%Y-%m-%d} ",
     // "on-click": "morgen"
+  },
+
+  "custom/fx": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/fx.sh",
+    "on-click": "~/.config/waybar/fx.sh --refresh >/dev/null; pkill -SIGRTMIN+8 waybar",
+    "on-click-right": "xdg-open https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-sek.en.html",
+    "interval": 900,
+    "signal": 8,
+    "on-scroll-up": "",
+    "on-scroll-down": "",
   },
 
   "custom/agenda": {
